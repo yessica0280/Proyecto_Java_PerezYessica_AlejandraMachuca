@@ -53,32 +53,43 @@ public class Consultas extends Conexion{
         }
     }
     
-    public List<String> mostrarInfo(){
+    public boolean mostrarInfo(Owners own){
 
-        String sql = "select * from Owners where password1 = ?";
-        List<String> ListaOwners = new ArrayList<>();
-        
+        String sql = "select * from Owners where id_owners=?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+
         try{
-            Connection cx = getConexion();
-            PreparedStatement solicitud =cx.prepareStatement(sql);
-            ResultSet rs = solicitud.executeQuery();
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, own.getPassword1());
+            rs = ps.executeQuery();
             
-            while (rs.next()){
-                ListaOwners.add(rs.getInt("id_owners")
-                + " - " + rs.getString("name1")
-                + " - " + rs.getInt("identification")
-                + " - " + rs.getString("address")
-                + " - " + rs.getInt("phone")
-                + " - " + rs.getString("email")
-                + " - " + rs.getInt("emergency_contact")
-                + " - " + rs.getString("points"));
+            if (rs.next()){
+                own.setId(rs.getInt("id_owners"));
+                own.setName1(rs.getString("name1"));
+                own.setIdentification(rs.getInt("identification"));
+                own.setAddress(rs.getString("address"));
+                own.setPhone(rs.getInt("phone"));
+                own.setEmail(rs.getString("email"));
+                own.setEmergency_contact(rs.getInt("emergency_contact"));
+                own.setPoints(rs.getString("points"));
+                return true;
             }
+            return false;
         }
         catch(SQLException e){
             System.err.println(e);
+            return false;
         }
-        
-        return ListaOwners;
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
     }
     
     /*public void mostrarDatos(){

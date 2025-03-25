@@ -30,10 +30,15 @@ public class FrameU extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ver = new javax.swing.JTextArea();
         inicio_sesion = new javax.swing.JButton();
-        opcion = new javax.swing.JTextField();
-        enviar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        informacion = new javax.swing.JTextArea();
+        buttonver = new javax.swing.JButton();
+        obid = new javax.swing.JTextField();
+        buttonact = new javax.swing.JButton();
+        buttonsalir = new javax.swing.JButton();
+        informacion = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtIden = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        txtAdr = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,52 +54,84 @@ public class FrameU extends javax.swing.JFrame {
 
         inicio_sesion.setText("Iniciar Sesión");
 
-        enviar.setText("Enviar");
+        buttonver.setText("Ver");
 
-        informacion.setColumns(20);
-        informacion.setRows(5);
-        jScrollPane2.setViewportView(informacion);
+        buttonact.setText("Actualizar");
+
+        buttonsalir.setText("Salir");
+
+        informacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                informacionActionPerformed(evt);
+            }
+        });
+
+        txtId.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(112, 112, 112)
                                 .addComponent(inicio_sesion))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(enviar)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(txtIden)
+                                    .addComponent(txtId)
+                                    .addComponent(txtAdr))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(buttonver)
+                        .addGap(58, 58, 58)
+                        .addComponent(buttonact)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonsalir)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(inicio_sesion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enviar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                    .addComponent(buttonver)
+                    .addComponent(buttonact)
+                    .addComponent(buttonsalir))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAdr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,6 +140,10 @@ public class FrameU extends javax.swing.JFrame {
     private void inicio_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicio_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inicio_idActionPerformed
+
+    private void informacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_informacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,13 +181,18 @@ public class FrameU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton enviar;
-    public javax.swing.JTextArea informacion;
+    public javax.swing.JButton buttonact;
+    public javax.swing.JButton buttonsalir;
+    public javax.swing.JButton buttonver;
+    public javax.swing.JTextField informacion;
     public javax.swing.JTextField inicio_id;
     public javax.swing.JButton inicio_sesion;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTextField opcion;
+    public javax.swing.JTextField obid;
+    public javax.swing.JTextField txtAdr;
+    public javax.swing.JTextField txtId;
+    public javax.swing.JTextField txtIden;
+    public javax.swing.JTextField txtName;
     public javax.swing.JTextArea ver;
     // End of variables declaration//GEN-END:variables
 }

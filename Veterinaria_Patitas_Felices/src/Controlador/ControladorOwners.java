@@ -27,8 +27,8 @@ public class ControladorOwners implements ActionListener{
         this.consultas = consultas;
         this.vista = vista;
         this.vista.inicio_sesion.addActionListener(this);
-        this.vista.opcion.addActionListener(this);
-        this.vista.enviar.addActionListener(this);
+        this.vista.buttonver.addActionListener(this);
+        this.vista.buttonact.addActionListener(this);
     }
     
     public void iniciar(){
@@ -49,18 +49,52 @@ public class ControladorOwners implements ActionListener{
             }
         }
         
-        if(e.getSource() == vista.enviar){
-            vista.informacion.setText("");
-            List<String> result= consultas.mostrarInfo();
-            if(result.isEmpty()){
-                JOptionPane.showMessageDialog(null, "Dueño no encontrado.");
+        if(e.getSource() == vista.buttonver){
+            modelo.setId(Integer.parseInt(vista.obid.getText()));
+            
+            if(consultas.obtener(modelo)){
+                vista.informacion.setText(modelo.getName1()
+                        + "\n" + modelo.getIdentification()
+                        + "\n" + modelo.getAddress()
+                        + "\n" + modelo.getPhone()
+                        + "\n" + modelo.getEmail()
+                        + "\n" + modelo.getEmergency_contact()
+                        + "\n" + modelo.getPoints()
+                        + "\n" + modelo.getPassword1());
+                limpiar();
             }
             else{
-                for(String Owners : result){
-                    vista.informacion.append(Owners + "\n");
-                }
+                JOptionPane.showMessageDialog(null, "No se encontró al dueño.");
+                limpiar();
             }
         }
         
+        if(e.getSource() == vista.buttonact){
+            modelo.setId(Integer.parseInt(vista.txtId.getText()));
+            modelo.setName1(vista.txtName.getText());
+            modelo.setIdentification(Integer.parseInt(vista.txtIden.getText()));
+            modelo.setAddress(vista.txtAdr.getText());
+            
+            if(consultas.obtener(modelo)){
+                vista.informacion.setText(modelo.getName1()
+                        + "\n" + modelo.getIdentification()
+                        + "\n" + modelo.getAddress()
+                        + "\n" + modelo.getPhone()
+                        + "\n" + modelo.getEmail()
+                        + "\n" + modelo.getEmergency_contact()
+                        + "\n" + modelo.getPoints()
+                        + "\n" + modelo.getPassword1());
+                limpiar();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No se encontró al dueño.");
+                limpiar();
+            }
+        }
+    }
+    
+    public void limpiar(){
+        vista.obid.setText(null);
+        vista.inicio_id.setText(null);
     }
 }
