@@ -15,6 +15,8 @@ create table Owners(
     password1 varchar(255) not null
 );
 
+select * from Owners;
+
 create table Additional_Services(
 	id_services int(15) not null auto_increment primary key,
     type_service varchar(255) not null,
@@ -36,6 +38,8 @@ create table Pets(
     id_owners int(15) not null,
     foreign key(id_owners) references Owners (id_owners)
 );
+
+select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets = 1;
 
 create table Doctors(
 	id_doctor int(15) not null auto_increment primary key,

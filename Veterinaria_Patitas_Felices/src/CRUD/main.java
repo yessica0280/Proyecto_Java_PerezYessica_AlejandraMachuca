@@ -3,6 +3,7 @@ package CRUD;
 import Controlador.ControladorOwners;
 import Modelo.Consultas;
 import Modelo.Owners;
+import Modelo.Pets;
 import Vista.FrameU;
 
 
@@ -11,8 +12,9 @@ public class main {
         Owners own = new Owners();
         Consultas cons = new Consultas();
         FrameU fr = new FrameU();
+        Pets pet = new Pets();
         
-        ControladorOwners co = new ControladorOwners(own, cons, fr);
+        ControladorOwners co = new ControladorOwners(own, pet, cons, fr);
         co.iniciar();
         fr.setVisible(true);
     }

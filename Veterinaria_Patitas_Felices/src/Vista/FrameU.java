@@ -27,18 +27,27 @@ public class FrameU extends javax.swing.JFrame {
     private void initComponents() {
 
         inicio_id = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ver = new javax.swing.JTextArea();
         inicio_sesion = new javax.swing.JButton();
         buttonver = new javax.swing.JButton();
         obid = new javax.swing.JTextField();
-        buttonact = new javax.swing.JButton();
+        updateB = new javax.swing.JButton();
         buttonsalir = new javax.swing.JButton();
-        informacion = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtIden = new javax.swing.JTextField();
-        txtId = new javax.swing.JTextField();
-        txtAdr = new javax.swing.JTextField();
+        txtPass = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        informacion = new javax.swing.JTextArea();
+        lookB = new javax.swing.JButton();
+        actMas = new javax.swing.JButton();
+        insertPet = new javax.swing.JButton();
+        verify = new javax.swing.JButton();
+        visitsB = new javax.swing.JButton();
+        services = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtEmergency = new javax.swing.JTextField();
+        txtPoints = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,61 +57,93 @@ public class FrameU extends javax.swing.JFrame {
             }
         });
 
-        ver.setColumns(20);
-        ver.setRows(5);
-        jScrollPane1.setViewportView(ver);
-
         inicio_sesion.setText("Iniciar Sesión");
 
-        buttonver.setText("Ver");
-
-        buttonact.setText("Actualizar");
-
-        buttonsalir.setText("Salir");
-
-        informacion.addActionListener(new java.awt.event.ActionListener() {
+        buttonver.setText("Ver mi información");
+        buttonver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                informacionActionPerformed(evt);
+                buttonverActionPerformed(evt);
             }
         });
 
-        txtId.setToolTipText("");
+        updateB.setText("Actualizar mi información");
+
+        buttonsalir.setText("Salir");
+
+        txtPass.setToolTipText("");
+
+        informacion.setColumns(20);
+        informacion.setRows(5);
+        jScrollPane2.setViewportView(informacion);
+
+        lookB.setText("Ver información de la mascota");
+        lookB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lookBActionPerformed(evt);
+            }
+        });
+
+        actMas.setText("Actualizar información de la mascota");
+        actMas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actMasActionPerformed(evt);
+            }
+        });
+
+        insertPet.setText("Registrar mascota");
+
+        verify.setText("Validar a mi mascota");
+
+        visitsB.setText("Visitas");
+
+        services.setText("Servicios adicionales");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(inicio_sesion))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(txtIden)
-                                    .addComponent(txtId)
-                                    .addComponent(txtAdr))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtIden, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtEmergency, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(txtPoints, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(18, 18, 18)
+                        .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(inicio_sesion))
+                    .addComponent(buttonsalir)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addComponent(buttonver)
-                        .addGap(58, 58, 58)
-                        .addComponent(buttonact)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonsalir)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updateB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lookB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(visitsB))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(actMas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(insertPet)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(verify)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(services)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,28 +151,42 @@ public class FrameU extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inicio_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(inicio_sesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(obid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inicio_sesion))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonver)
-                    .addComponent(buttonact)
-                    .addComponent(buttonsalir))
+                    .addComponent(updateB)
+                    .addComponent(lookB)
+                    .addComponent(visitsB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actMas)
+                    .addComponent(insertPet)
+                    .addComponent(verify)
+                    .addComponent(services))
+                .addGap(40, 40, 40)
+                .addComponent(buttonsalir)
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(informacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAdr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,9 +196,17 @@ public class FrameU extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inicio_idActionPerformed
 
-    private void informacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informacionActionPerformed
+    private void buttonverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_informacionActionPerformed
+    }//GEN-LAST:event_buttonverActionPerformed
+
+    private void lookBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lookBActionPerformed
+
+    private void actMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actMasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actMasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,18 +244,27 @@ public class FrameU extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton buttonact;
+    public javax.swing.JButton actMas;
     public javax.swing.JButton buttonsalir;
     public javax.swing.JButton buttonver;
-    public javax.swing.JTextField informacion;
+    public javax.swing.JTextArea informacion;
     public javax.swing.JTextField inicio_id;
     public javax.swing.JButton inicio_sesion;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton insertPet;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JButton lookB;
     public javax.swing.JTextField obid;
-    public javax.swing.JTextField txtAdr;
-    public javax.swing.JTextField txtId;
+    public javax.swing.JButton services;
+    public javax.swing.JTextField txtAddress;
+    public javax.swing.JTextField txtEmail;
+    public javax.swing.JTextField txtEmergency;
     public javax.swing.JTextField txtIden;
     public javax.swing.JTextField txtName;
-    public javax.swing.JTextArea ver;
+    public javax.swing.JTextField txtPass;
+    public javax.swing.JTextField txtPhone;
+    public javax.swing.JTextField txtPoints;
+    public javax.swing.JButton updateB;
+    public javax.swing.JButton verify;
+    public javax.swing.JButton visitsB;
     // End of variables declaration//GEN-END:variables
 }
