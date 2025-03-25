@@ -2,6 +2,7 @@ create database Veterinaria_Patitas_Felices;
 
 use Veterinaria_Patitas_Felices;
 
+
 create table Owners(
 	id_owners int not null auto_increment primary key,
     name1 varchar(255) not null,
@@ -10,7 +11,8 @@ create table Owners(
     phone int(15) not null,
     email varchar(255) not null,
     emergency_contact int(15) not null,
-    points varchar(255) not null
+    points varchar(255) not null,
+    password1 varchar(255) not null
 );
 
 create table Additional_Services(
@@ -40,7 +42,8 @@ create table Doctors(
     name1 varchar(255) not null,
     speciality varchar(255) not null,
     phone int(15) not null,
-    email varchar(255) not null
+    email varchar(255) not null,
+    password1 varchar(255) not null
 );
 
 create table Consult(
@@ -134,7 +137,8 @@ create table Administrator(
     name1 varchar(255) not null,
     phone int(15) not null,
     email varchar(255) not null,
-    nit int(15) not null
+    nit int(15) not null,
+    password1 varchar(255) not null
 );
 
 create table Details(

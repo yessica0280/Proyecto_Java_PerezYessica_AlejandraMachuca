@@ -1,15 +1,15 @@
 use Veterinaria_Patitas_Felices;
 
-insert into Owners values (1, 'Yessica Andrea Perez Machuca', 563148975, 'Calle 24 av 33', 313245982, 'yessica@gmail.com', 312478964, 2), 
-(2, 'Alejandra Machuca Molina', 897562143, 'Calle 12 av 12', 311254789, 'alejandra@gmail.com', 31514795, 3), 
-(3, 'Camilo Machuca Molina', 100254786, 'Calle 2 av central', 310547893, 'camilo@gmail.com', 31024863, 5), 
-(4, 'Liceth Carolina Ortega Machuca', 510054785, 'Calle 24 barrio porvenir', 314875963, 'lictha@gmail.com', 311589642, 3),
-(5, 'Esperanza Machuca Molina', 563148752, 'Calle 24 barrio el puerto', 312578964, 'esperanza@gmail.com', 312547989, 1),  
-(6, 'Leidy Machuca Molina', 100524875, 'Calle 22 av 13', 313249875, 'yleidy@gmail.com', 310459874, 2), 
-(7, 'Ruben Dario Perez Bernal', 100523987, 'Calle 12 barrio belen', 311359772, 'ruben@gmail.com', 312895634, 8), 
-(8, 'Yurley Botello Garcia', 100897426, 'Calle 12 barrio prados', 310856479, 'yurlei@gmail.com', 311597632, 3), 
-(9, 'Karla Valentina Parada Perez', 100312789, 'Calle 12 av 34', 318459753, 'karla@gmail.com', 310897534, 1), 
-(10, 'Zully Fernanda Ortiz Avendaño', 100976541, 'Calle 12 av 5', 313597861, 'zully@gmail.com', 311523687, 2);
+insert into Owners values (1, 'Yessica Andrea Perez Machuca', 563148975, 'Calle 24 av 33', 313245982, 'yessica@gmail.com', 312478964, 2, "123"), 
+(2, 'Alejandra Machuca Molina', 897562143, 'Calle 12 av 12', 311254789, 'alejandra@gmail.com', 31514795, 3, "alejandra123"), 
+(3, 'Camilo Machuca Molina', 100254786, 'Calle 2 av central', 310547893, 'camilo@gmail.com', 31024863, 5, "camilo123"), 
+(4, 'Liceth Carolina Ortega Machuca', 510054785, 'Calle 24 barrio porvenir', 314875963, 'lictha@gmail.com', 311589642, 3, "liceth123"),
+(5, 'Esperanza Machuca Molina', 563148752, 'Calle 24 barrio el puerto', 312578964, 'esperanza@gmail.com', 312547989, 1, "esperanza123"),  
+(6, 'Leidy Machuca Molina', 100524875, 'Calle 22 av 13', 313249875, 'yleidy@gmail.com', 310459874, 2, "leidy123"), 
+(7, 'Ruben Dario Perez Bernal', 100523987, 'Calle 12 barrio belen', 311359772, 'ruben@gmail.com', 312895634, 8, "ruben123"), 
+(8, 'Yurley Botello Garcia', 100897426, 'Calle 12 barrio prados', 310856479, 'yurlei@gmail.com', 311597632, 3, "yurley123"), 
+(9, 'Karla Valentina Parada Perez', 100312789, 'Calle 12 av 34', 318459753, 'karla@gmail.com', 310897534, 1, "karla123"), 
+(10, 'Zully Fernanda Ortiz Avendaño', 100976541, 'Calle 12 av 5', 313597861, 'zully@gmail.com', 311523687, 2, "zully123");
 
 insert into Additional_Services values(1, "Rehabilitation",1),
 (2, "Transportation",2),
@@ -28,16 +28,16 @@ insert into Pets values ( 1, 'Booby', 'Dog', 'Bichón frisé', 4, "2021-02-21", 
 ( 9, 'Luna', 'Butterfly', 'Monarca', 4, "2022-05-11", 'Female', false, "https://www.biologicaldiversity.org/assets/img/species/invertebrates/MonarchButterfly_Flickr_DebbieLong_FPWC.jpg", true, 9),
 ( 10, 'Princesa', 'Iguana', 'Marina', 2, "2023-10-12", 'Female', true, "https://upload.wikimedia.org/wikipedia/commons/f/ff/Marine-Iguana-Espanola.jpg", false, 10);
 
-insert into Doctors values(1, 'Dr. Juan Perez', 'Exotic animal veterinarian', 313524875, 'juan@gmail.com'),
-(2, 'Dra. Laura Camacho', 'Veterinary Surgeon', 312547965, 'laura@gmail.com'),
-(3, 'Dr. Carlos Bernal', 'Veterinary dermatologist', 311548965, 'carlos@gmail.com'),
-(4, 'Dra. Ana Martínez', 'Veterinary dentist', 310578642, 'ana@gmail.com'),
-(5, 'Dr. Roberto Díaz', 'Veterinary Cardiology', 315247965, 'roberto@gmail.com'),
-(6, 'Dra. Carmen Sanchez', 'Veterinary Oncology', 316231789, 'carmen@gmail.com'),
-(7, 'Dr. Javier lopez', 'Equine veterinarian', 314597820, 'javier@gmail.com'),
-(8, 'Dra. Alejandra Ramirez', 'Avian veterinarian', 312548502, 'alejandra@gmail.com'),
-(9, 'Dr. Miguel Machuca', 'Animal behavior', 310548965, 'miguel@gmail.com'),
-(10, 'Dra. Andrea Perez', 'Veterinary Surgeon', 312789420, 'andrea@gmail.com');
+insert into Doctors values(1, 'Dr. Juan Perez', 'Exotic animal veterinarian', 313524875, 'juan@gmail.com', "juan123"),
+(2, 'Dra. Laura Camacho', 'Veterinary Surgeon', 312547965, 'laura@gmail.com', "laura123"),
+(3, 'Dr. Carlos Bernal', 'Veterinary dermatologist', 311548965, 'carlos@gmail.com', "carlos123"),
+(4, 'Dra. Ana Martínez', 'Veterinary dentist', 310578642, 'ana@gmail.com', "ana123"),
+(5, 'Dr. Roberto Díaz', 'Veterinary Cardiology', 315247965, 'roberto@gmail.com', "roberto123"),
+(6, 'Dra. Carmen Sanchez', 'Veterinary Oncology', 316231789, 'carmen@gmail.com', "carmen123"),
+(7, 'Dr. Javier lopez', 'Equine veterinarian', 314597820, 'javier@gmail.com', "javier123"),
+(8, 'Dra. Alejandra Ramirez', 'Avian veterinarian', 312548502, 'alejandra@gmail.com', "alejandraa123"),
+(9, 'Dr. Miguel Machuca', 'Animal behavior', 310548965, 'miguel@gmail.com', "miguel123"),
+(10, 'Dra. Andrea Perez', 'Veterinary Surgeon', 312789420, 'andrea@gmail.com', "andrea123");
 
 insert into Consult values(1, "2022-08-03", '10:00', 'General inquiry', 'reserved', 'Antiparasitic and Antibiotic', 1, 2),
 (2, "2020-05-04", '06:00', 'Preventive consultation', 'Medical examinations were performed', 'Anti-inflammatories and Psychotropics', 2, 2),
@@ -127,16 +127,8 @@ insert into Inventary values(1, 'Delta pharmaceutica', 1, 2),
 (9, 'Zeta laboratory', 4, 4),
 (10, 'Pharma laboratory', 5, 8);
 
-insert into  Administrator values(1, 'Carlos Martinez', 313258974, 'carlos@gmail.com', 123456780),
-(2, 'Ana Gomez', 311254784, 'ana@gmail.com', 098745621),
-(3, 'Pedro Lopez', 314597821, 'pedro@gmail.com', 254789641),
-(4, 'Lucia Fernandez', 315648954, 'lucia@gmail.com', 201265482),
-(5, 'Jose Rodriguez', 312547965, 'jose@gmail.com', 542103978),
-(6, 'Maria Sanchez', 313254795, 'maria@gmail.com', 521647896),
-(7, 'Raul Perez', 314597642, 'raul@gmail.com', 854210364),
-(8, 'Patricia Diaz', 315489562, 'patricia@gmail.com', 875421369),
-(9, 'Ricardo Hernandez', 314598521, 'ricardo@gmail.com', 965423654),
-(10, 'Isabel Ruiz', 315978420, 'isabel@gmail.com', 452130298);
+insert into  Administrator values(1, 'Carlos Martinez', 313258974, 'carlos@gmail.com', 123456780, "carlos123"),
+(2, 'Ana Gomez', 311254784, 'ana@gmail.com', 098745621, "ana123");
 
 insert into Details values(1, 25.000, 25.000, 5.000, '2025-04-10', 1),
 (2, 35.000, 35.000, 3.000, '2024-10-05', 10),
@@ -150,26 +142,26 @@ insert into Details values(1, 25.000, 25.000, 5.000, '2025-04-10', 1),
 (10, 75.000, 75.000, 4.000, '2025-04-28', 2);
 
 insert into Invoice values(1, 150.000, 'Cufe12547896520', 'INV001', 1, 2, 3),
-(2, 99.000, 'Cufe54789654128', 'INV002', 2, 5, 8),
-(3, 55.000, 'Cufe57896412304', 'INV004', 6, 8, 5),
-(4, 89.000, 'Cufe89742031561', 'INV004', 8, 2, 3),
-(5, 66.000, 'Cufe32145978528', 'INV005', 6, 9, 10),
-(6, 55.000, 'Cufe95210547894', 'INV008', 3, 2, 8),
-(7, 30.000, 'Cufe52103489751', 'INV009', 4, 4, 4),
-(8, 65.000, 'Cufe52147896521', 'INV003', 1, 5, 3),
-(9, 75.000, 'Cufe59784103210', 'INV001', 2, 8, 10),
-(10, 85.000, 'Cufe89745631025', 'INV010', 10, 9, 8);
+(2, 99.000, 'Cufe54789654128', 'INV002', 2, 1, 8),
+(3, 55.000, 'Cufe57896412304', 'INV004', 6, 2, 5),
+(4, 89.000, 'Cufe89742031561', 'INV004', 8, 1, 3),
+(5, 66.000, 'Cufe32145978528', 'INV005', 6, 2, 10),
+(6, 55.000, 'Cufe95210547894', 'INV008', 3, 1, 8),
+(7, 30.000, 'Cufe52103489751', 'INV009', 4, 2, 4),
+(8, 65.000, 'Cufe52147896521', 'INV003', 1, 1, 3),
+(9, 75.000, 'Cufe59784103210', 'INV001', 2, 2, 10),
+(10, 85.000, 'Cufe89745631025', 'INV010', 10, 1, 8);
 
 insert into Adoption values(1, 'Laura Gonzales', 313254795, 'laura@gmail.com', 'Calle 45 # 12 -34', "2025-02-10", 1, 2),
 (2, 'Carlos Ramirez', 315120145, 'carlos@gmail.com', 'Avenida 23', "2021-05-15", 2, 1),
-(3, 'Maria Lopez', 312054895, 'maria@gmail.com', 'Calle 10 # 34 - 12', "2020-10-13", 3, 4),
-(4, 'Jose Martinez', 310245985, 'jose@gmail.com', 'Carrera 15 # 51 - 02', "2019-04-05", 4, 3),
-(5, 'Isabel Perez', 314502318, 'isabel@gmail.com', 'Calle 11 # 15 - 04', "2013-08-26", 5, 6),
-(6, 'Raul Torres', 310256479, 'raul@gmail.com', 'Calle 8 # 05 - 12',"2014-07-14", 6, 5),
-(7, 'Patricia Diaz', 318452123, 'patricia@gmail.com', 'Avenida 9 # 45 - 15', "2025-01-23", 7, 8),
-(8, 'Ricardo Herrera', 311521548, 'ricardo@gmail.com', 'Calle 20 # 07 - 20', "2024-05-29", 8, 7),
-(9, 'Veronica Jimenez', 312854103, 'veronica@gmail.com', 'Calle 30 # 12 - 07', "2023-11-30", 9, 10),
-(10, 'Luis Sanchez', 310547895, 'luis@gmail.com', 'Carrera 17 # 23 - 45', "2024-12-31", 9, 9);
+(3, 'Maria Lopez', 312054895, 'maria@gmail.com', 'Calle 10 # 34 - 12', "2020-10-13", 1, 4),
+(4, 'Jose Martinez', 310245985, 'jose@gmail.com', 'Carrera 15 # 51 - 02', "2019-04-05", 2, 3),
+(5, 'Isabel Perez', 314502318, 'isabel@gmail.com', 'Calle 11 # 15 - 04', "2013-08-26", 1, 6),
+(6, 'Raul Torres', 310256479, 'raul@gmail.com', 'Calle 8 # 05 - 12',"2014-07-14", 2, 5),
+(7, 'Patricia Diaz', 318452123, 'patricia@gmail.com', 'Avenida 9 # 45 - 15', "2025-01-23", 1, 8),
+(8, 'Ricardo Herrera', 311521548, 'ricardo@gmail.com', 'Calle 20 # 07 - 20', "2024-05-29", 2, 7),
+(9, 'Veronica Jimenez', 312854103, 'veronica@gmail.com', 'Calle 30 # 12 - 07', "2023-11-30", 1, 10),
+(10, 'Luis Sanchez', 310547895, 'luis@gmail.com', 'Carrera 17 # 23 - 45', "2024-12-31", 2, 9);
 
 insert into Visits_History values(1, 4, null, 1),
 (2, 8, "Free nutritional counseling", 2),
