@@ -2,7 +2,6 @@ create database Veterinaria_Patitas_Felices;
 
 use Veterinaria_Patitas_Felices;
 
-
 create table Owners(
 	id_owners int not null auto_increment primary key,
     name1 varchar(255) not null,
@@ -39,6 +38,8 @@ create table Pets(
     foreign key(id_owners) references Owners (id_owners)
 );
 
+select * from Pets;
+
 select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets = 1;
 
 create table Doctors(
@@ -49,6 +50,7 @@ create table Doctors(
     email varchar(255) not null,
     password1 varchar(255) not null
 );
+select * from Doctors;
 
 create table Consult(
 	id_consult int(15) not null auto_increment primary key,
@@ -118,6 +120,8 @@ create table Medicines(
     expiration_date date not null,
     price int(15) not null
 );
+
+select expiration_date from Medicines;
 
 create table Products(
 	id_product int(15) not null auto_increment primary key,

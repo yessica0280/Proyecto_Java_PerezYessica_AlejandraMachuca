@@ -1,8 +1,131 @@
 package Administrator.Modelo;
 
 import java.sql.*; 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Consultas extends Conexion{
+    
+    /*View Doctors*/
+    public boolean viewDoctors(Doctors doctor) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+        
+        String sql = "select * from Doctors where id_doctor=?";
+        
+        try {
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, doctor.getId_doctor());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                doctor.setName1(rs.getString("name1"));
+                doctor.setSpeciality(rs.getString("speciality"));
+                doctor.setPhone(rs.getInt("phone"));
+                doctor.setEmail(rs.getString("email"));
+                doctor.setPassword(rs.getString("password1"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*View pets*/
+    public boolean readPets(Pets pet){
+
+        String sql = "select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets=?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, pet.getId_pets());
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                pet.setId_pets(rs.getInt("id_pets"));
+                pet.setName1(rs.getString("name1"));
+                pet.setSpecies(rs.getString("species"));
+                pet.setRace(rs.getString("race"));
+                pet.setAge(rs.getInt("age"));
+                pet.setDate_of_birth(rs.getString("date_of_birth"));
+                pet.setSex(rs.getString("sex"));
+                pet.setMicrochip(rs.getBoolean("microchip"));
+                pet.setPhoto(rs.getString("photo"));
+                pet.setTattoo(rs.getBoolean("tattoo"));
+                pet.setId_owners(rs.getInt("id_owners"));
+                
+                return true;
+            }
+            return false;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*View Owners*/
+    public boolean mostrarInfo(Owners own){
+
+        String sql = "select * from Owners where id_owners=?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, own.getId());
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                own.setId(rs.getInt("id_owners"));
+                own.setName1(rs.getString("name1"));
+                own.setIdentification(rs.getInt("identification"));
+                own.setAddress(rs.getString("address"));
+                own.setPhone(rs.getInt("phone"));
+                own.setEmail(rs.getString("email"));
+                own.setEmergency_contact(rs.getInt("emergency_contact"));
+                own.setPoints(rs.getString("points"));
+                return true;
+            }
+            return false;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
     
     /*View administrator information*/
     public boolean obtener(Administrator admi) {
@@ -42,35 +165,35 @@ public class Consultas extends Conexion{
         }
     }
     
-    /*Update administrator*/
-    public boolean update(Administrator admi) {
+    /*View medicines*/
+    public boolean ViewMedicines(Medicines medicines){
         PreparedStatement ps = null;
+        ResultSet rs = null;
         Connection con = getConexion();
         
-        String sql = "update Administrator set name1=?, phone=?, email=?, nit=?, password=?, where id_administrator=?";
+        String sql = "select expiration_date from Medicines";
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-mm-dd");
+        String fecha = sf.format(new Date());
         
-        try {
+        try{
             ps = cx.prepareStatement(sql);
-            ps.setString(1, admi.getName());
-            ps.setInt(2, admi.getPhone());
-            ps.setString(3, admi.getEmail());
-            ps.setInt(4, admi.getNit());
-            ps.setString(5, admi.getPassword());
-            ps.setInt(6, admi.getId_administrator());
-            ps.execute();
+            ps.setInt(1, medicines.getId_medicine());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                medicines.setName1(rs.getString("name1"));
+                medicines.setType1(rs.getString("type1"));
+                medicines.setManufacturer(rs.getString("manufacturer"));
+                medicines.setQuantity(rs.getInt("quantity"));
+                medicines.setExpiracion_date(rs.getString("expiration_date"));
+                medicines.setPrice(rs.getInt("price"));
+                return true;
+            }
             return false;
         }
-        catch (SQLException e) {
+        catch(SQLException e){
             System.err.println(e);
             return false;
-        }
-        finally {
-            try {
-                cx.close();
-            }
-            catch (SQLException e) {
-                System.err.println(e);
-            }
         }
     }
     
@@ -105,39 +228,72 @@ public class Consultas extends Conexion{
         return true;
     }
     
-    /*View Doctors*/
-    public boolean obtener(Doctors doctor) {
+    /*add pets*/
+    public boolean addPets(Pets pet){
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection con = getConexion();
+        Connection cx = getConexion();
         
-        String sql = "select * from Doctors where id_doctor=?";
+        String sql = "insert into Pets (name1, species, race, age, date_of_birth, sex, microchip, photo, tattoo, id_owners) values (?,?,?,?,?,?,?,?,?,?)";
         
-        try {
+        try{
             ps = cx.prepareStatement(sql);
-            ps.setInt(1, doctor.getId_doctor());
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                doctor.setId_doctor(rs.getInt("id_doctor"));
-                doctor.setName1(rs.getString("name1"));
-                doctor.setSpeciality(rs.getString("speciality"));
-                doctor.setPhone(rs.getInt("phone"));
-                doctor.setEmail(rs.getString("email"));
-                doctor.setPassword(rs.getString("password1"));
-                return true;
-            }
-            return false;
+            ps.setString(1, pet.getName1());
+            ps.setString(2, pet.getSpecies());
+            ps.setString(3, pet.getRace());
+            ps.setInt(4, pet.getAge());
+            ps.setString(5, pet.getDate_of_birth());
+            ps.setString(6, pet.getSex());
+            ps.setBoolean(7, pet.isMicrochip());
+            ps.setString(8, pet.getPhoto());
+            ps.setBoolean(9, pet.isTattoo());
+            ps.setInt(10, pet.getId_owners());
+            ps.execute();            
+            return true;
         }
-        catch (SQLException e) {
+        catch(SQLException e){
             System.err.println(e);
             return false;
         }
-        finally {
-            try {
+        finally{
+            try{
                 cx.close();
             }
-            catch (SQLException e) {
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*add owners*/
+    public boolean addOwners(Owners own){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "insert into Owners (name1, identification, address, phone, email, emergency_contact, points, password1, id_owners) values (?,?,?,?,?,?,?,?,?)";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, own.getName1());
+            ps.setInt(2, own.getIdentification());
+            ps.setString(3, own.getAddress());
+            ps.setInt(4, own.getPhone());
+            ps.setString(5, own.getEmail());
+            ps.setInt(6, own.getEmergency_contact());
+            ps.setString(7, own.getPoints());
+            ps.setString(8, own.getPassword1());
+            ps.setInt(9, own.getId());
+            ps.execute();            
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
                 System.err.println(e);
             }
         }
@@ -146,7 +302,7 @@ public class Consultas extends Conexion{
     /*Delete Doctors*/
     public boolean delete(Doctors doctor) {
         PreparedStatement ps = null;
-        Connection con = null;
+        Connection con = getConexion();
         
         String sql = "delete from Doctors where id_doctor=?";
         
@@ -170,12 +326,66 @@ public class Consultas extends Conexion{
         return true;
     }
     
-    /*Update doctor*/
-    public boolean update_doctor(Doctors doc) {
+    /*delete pets*/
+    public boolean deletePets(Pets pet){
         PreparedStatement ps = null;
-        Connection con = null;
+        Connection cw = getConexion();
         
-        String sql = "update Doctors set name=?, speciality=?, phone=?, email=?, password=?, where id_doctor=?";
+        String sql = "delete from Pets where id_pets=?";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, pet.getId_pets());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println();
+            }
+        }
+    }
+    
+    /*delete pets*/
+    public boolean deleteOwners(Owners own){
+        PreparedStatement ps = null;
+        Connection cw = getConexion();
+        
+        String sql = "delete from Owners where id_owners=?";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, own.getId());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println();
+            }
+        }
+    }
+    
+    /*Update doctor*/
+    public boolean updateDoctor(Doctors doc) {
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        
+        String sql = "update Doctors set name1=?, speciality=?, phone=?, email=?, password1=? where id_doctor=?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, doc.getName1());
@@ -183,6 +393,7 @@ public class Consultas extends Conexion{
             ps.setInt(3, doc.getPhone());
             ps.setString(4, doc.getEmail());
             ps.setString(5, doc.getPassword());
+            ps.setInt(6, doc.getId_doctor());
             ps.execute();
             return true;
         }
@@ -190,9 +401,105 @@ public class Consultas extends Conexion{
             System.err.println(e);
             return false;
         }
+    }
+    
+    /*update pets*/
+    public boolean updatePets(Pets pet){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "update Pets set name1=?, species=?, race=?, age=?, date_of_birth=?, sex=?, microchip=?, photo=?, tattoo=?, id_owners=? where id_pets=?";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, pet.getName1());
+            ps.setString(2, pet.getSpecies());
+            ps.setString(3, pet.getRace());
+            ps.setInt(4, pet.getAge());
+            ps.setString(5, pet.getDate_of_birth());
+            ps.setString(6, pet.getSex());
+            ps.setBoolean(7, pet.isMicrochip());
+            ps.setString(8, pet.getPhoto());
+            ps.setBoolean(9, pet.isTattoo());
+            ps.setInt(10, pet.getId_owners());
+            ps.setInt(11, pet.getId_pets());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*update owners*/
+    public boolean updateOwners(Owners own){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "update Owners set name1=?, identification=?, address=?, phone=?, email=?, emergency_contact=?, points=?, password1=? where id_owners=?";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, own.getName1());
+            ps.setInt(2, own.getIdentification());
+            ps.setString(3, own.getAddress());
+            ps.setInt(4, own.getPhone());
+            ps.setString(5, own.getEmail());
+            ps.setInt(6, own.getEmergency_contact());
+            ps.setString(7, own.getPoints());
+            ps.setString(8, own.getPassword1());
+            ps.setInt(9, own.getId());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*Update administrator*/
+    public boolean update(Administrator admi) {
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        
+        String sql = "update Administrator set name1=?, phone=?, email=?, nit=?, password=?, where id_administrator=?";
+        
+        try {
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, admi.getName());
+            ps.setInt(2, admi.getPhone());
+            ps.setString(3, admi.getEmail());
+            ps.setInt(4, admi.getNit());
+            ps.setString(5, admi.getPassword());
+            ps.setInt(6, admi.getId_administrator());
+            ps.execute();
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
         finally {
             try {
-                con.close();
+                cx.close();
             }
             catch (SQLException e) {
                 System.err.println(e);
