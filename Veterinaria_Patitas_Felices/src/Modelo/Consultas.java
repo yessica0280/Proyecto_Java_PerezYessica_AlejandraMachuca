@@ -1,5 +1,6 @@
 package Modelo;
 
+import Doctors.Modelo.Doctors;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -181,5 +182,9 @@ public class Consultas extends Conexion{
           ex.printStackTrace();
         }    
     }*/
+
+    public boolean ver(Doctors modelo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
