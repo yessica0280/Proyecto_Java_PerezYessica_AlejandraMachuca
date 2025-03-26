@@ -125,7 +125,7 @@ public class ControladorDoctors implements ActionListener{
             }
         }
         
-        
+        /*Add pets*/
         this.vista.names.setVisible(true);
         this.vista.species.setVisible(true);
         this.vista.race.setVisible(true);

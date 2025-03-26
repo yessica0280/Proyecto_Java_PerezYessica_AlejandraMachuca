@@ -151,18 +151,9 @@ public class Consultas extends Conexion{
         String sql = "delete from Doctors where id_doctor=?";
         
         try {
-            con = getConexion();
             ps = con.prepareStatement(sql);
             ps.setInt(1, doctor.getId_doctor());
-            int fila = ps.executeUpdate();
-            
-            if (fila > 0) {
-                System.out.println("Doctor successfully eliminated");
-                return true;
-            }
-            else {
-                System.out.println("Doctor not found");
-            }
+            ps.execute();
         }
         catch (SQLException e) {
             System.err.println(e);
@@ -177,5 +168,35 @@ public class Consultas extends Conexion{
             }
         }
         return true;
+    }
+    
+    /*Update doctor*/
+    public boolean update_doctor(Doctors doc) {
+        PreparedStatement ps = null;
+        Connection con = null;
+        
+        String sql = "update Doctors set name=?, speciality=?, phone=?, email=?, password=?, where id_doctor=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, doc.getName1());
+            ps.setString(2, doc.getSpeciality());
+            ps.setInt(3, doc.getPhone());
+            ps.setString(4, doc.getEmail());
+            ps.setString(5, doc.getPassword());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                con.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
     }
 }

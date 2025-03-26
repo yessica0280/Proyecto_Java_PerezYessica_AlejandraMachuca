@@ -63,8 +63,15 @@ public class Vista_Doctors extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panel1.setBackground(new java.awt.Color(208, 251, 208));
+
         jLabel2.setText("Doctors");
 
+        id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        password1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        inicio.setBackground(new java.awt.Color(151, 216, 151));
         inicio.setText("Inicio sesión");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -72,18 +79,18 @@ public class Vista_Doctors extends javax.swing.JFrame {
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inicio)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(53, 53, 53)
+                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(inicio)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -100,6 +107,9 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        panel2.setBackground(new java.awt.Color(208, 251, 208));
+
+        add.setBackground(new java.awt.Color(151, 216, 151));
         add.setText("Add");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +117,7 @@ public class Vista_Doctors extends javax.swing.JFrame {
             }
         });
 
+        update.setBackground(new java.awt.Color(151, 216, 151));
         update.setText("Update");
         update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,32 +125,61 @@ public class Vista_Doctors extends javax.swing.JFrame {
             }
         });
 
+        view.setBackground(new java.awt.Color(151, 216, 151));
         view.setText("View");
 
+        clean.setBackground(new java.awt.Color(151, 216, 151));
         clean.setText("Clean");
 
+        id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
             }
         });
 
+        espe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        phone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
         information.setColumns(20);
         information.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         information.setRows(5);
         jScrollPane1.setViewportView(information);
 
+        names.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        species.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        micro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        age.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        date_of.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         photo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 photoActionPerformed(evt);
             }
         });
 
+        id_owners.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+
+        race.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         race.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 raceActionPerformed(evt);
             }
         });
+
+        sex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -232,7 +272,7 @@ public class Vista_Doctors extends javax.swing.JFrame {
                     .addComponent(race, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,20 +280,18 @@ public class Vista_Doctors extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

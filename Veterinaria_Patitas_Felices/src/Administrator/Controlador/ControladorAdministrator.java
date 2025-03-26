@@ -48,6 +48,7 @@ public class ControladorAdministrator implements ActionListener{
         this.vista.upda4.setVisible(false);
         
         /*Buttonds delete*/
+        this.vista.delete.addActionListener(this);
         this.vista.delete.setVisible(false);
         this.vista.eli1.setVisible(false);
         this.vista.eli2.setVisible(false);
@@ -189,6 +190,45 @@ public class ControladorAdministrator implements ActionListener{
         }
         
         /*Delete doctor*/
+        if (e.getSource() == vista.delete) {
+            this.vista.eli1.setVisible(true);
+            this.vista.eli2.setVisible(true);
+            this.vista.eli3.setVisible(true);
+        }
         
+        if (e.getSource() == vista.eli1) {
+            doctors.setId_doctor(Integer.parseInt(vista.id1.getText()));
+            
+            if (consultas.delete(doctors)){
+                JOptionPane.showMessageDialog(null, "Doctors delete.");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Error when deleting.");
+            }
+        }
+        
+        /*Update doctors*/
+        if (e.getSource() == vista.update) {
+            this.vista.upda1.setVisible(true);
+            this.vista.upda2.setVisible(true);
+            this.vista.upda3.setVisible(true);
+            this.vista.upda4.setVisible(true);
+        }
+        
+        if (e.getSource() == vista.upda1) {
+            doctors.setId_doctor(Integer.parseInt(vista.id1.getText()));
+            doctors.setName1(vista.name.getText());
+            doctors.setSpeciality(vista.text3.getText());
+            doctors.setPhone(Integer.parseInt(vista.text4.getText()));
+            doctors.setEmail(vista.text5.getText());
+            doctors.setPassword(vista.text6.getText());
+            
+            if (consultas.update_doctor(doctors)) {
+                JOptionPane.showMessageDialog(null, "Update doctor.");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Error when updating.");
+            }
+        }
     }
 }

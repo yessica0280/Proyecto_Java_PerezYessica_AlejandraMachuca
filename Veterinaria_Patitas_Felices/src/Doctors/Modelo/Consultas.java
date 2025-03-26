@@ -82,7 +82,6 @@ public class Consultas extends Conexion{
         try {
             ps = cx.prepareStatement(sql);
             ps.setInt(1, pets.getId_pets());
-            rs = ps.executeQuery();
             
             ps.setString(1, pets.getName1());
             ps.setString(2, pets.getSpecies());
@@ -94,6 +93,8 @@ public class Consultas extends Conexion{
             ps.setString(8, pets.getPhoto());
             /*ps.setInt(9, pets.isTatto() ? 1 : 0);*/
             ps.setInt(10, pets.getId_owners());
+            ps.execute();
+            return true;
         }
         catch (SQLException e) {
             System.err.println(e);
@@ -107,6 +108,5 @@ public class Consultas extends Conexion{
                 System.err.println(e);
             }
         }
-        return true;
     }
 }
