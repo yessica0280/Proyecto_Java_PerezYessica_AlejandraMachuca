@@ -113,9 +113,9 @@ public class ControladorDoctors implements ActionListener{
             modelo.setSpeciality(vista.espe.getText());
             modelo.setPhone(Integer.parseInt(vista.phone.getText()));
             modelo.setEmail(vista.email.getText());
-            modelo.setPassword(vista.password.getText());
+            modelo.setPassword(vista.password1.getText());
             
-            if (consultas.ver(modelo)) {
+            if (consultas.updateDoctor(modelo)) {
                 JOptionPane.showMessageDialog(null, "Doctor successfully updated");
                 clean();
             }

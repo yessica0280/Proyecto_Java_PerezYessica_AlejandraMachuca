@@ -46,7 +46,7 @@ public class Consultas extends Conexion{
         ResultSet rs = null;
         Connection cx = getConexion();
         
-        String sql = "update Doctors set name1=?, speciality=?, phone=?, email=?, password=? where id_doctor=?";
+        String sql = "update Doctors set name1=?, speciality=?, phone=?, email=?, password1=? where id_doctor=?";
         try {
             ps = cx.prepareStatement(sql);
             ps.setString(1, doc.getName1());
@@ -77,7 +77,7 @@ public class Consultas extends Conexion{
         ResultSet rs = null;
         Connection cx = getConexion();
         
-        String sql = "insert into Pets(name1, species, race, age, date_of_birth, sex, microchip, photo, tatto, id_owners, id_pets) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into Pets(name1, species, race, age, date_of_birth, sex, microchip, photo, tattoo, id_owners) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
             ps = cx.prepareStatement(sql);
@@ -87,11 +87,11 @@ public class Consultas extends Conexion{
             ps.setString(2, pets.getSpecies());
             ps.setString(3, pets.getRace());
             ps.setInt(4, pets.getAge());
-            ps.setDate(5, java.sql.Date.valueOf(pets.getDate_of_birth()));
+            ps.setString(5, pets.getDate_of_birth());
             ps.setString(6, pets.getSex());
-            ps.setInt(7, pets.isMicrochip() ? 1 : 0);
+            ps.setBoolean(7, pets.isMicrochip());
             ps.setString(8, pets.getPhoto());
-            /*ps.setInt(9, pets.isTatto() ? 1 : 0);*/
+            ps.setBoolean(9, pets.isTattoo());
             ps.setInt(10, pets.getId_owners());
             ps.execute();
             return true;
