@@ -1,6 +1,5 @@
-package Modelo;
+package Dueños.Modelo;
 
-import Doctors.Modelo.Doctors;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -162,6 +161,148 @@ public class Consultas extends Conexion{
         }
     }
     
+    public boolean readVisits(Visits_History vh){
+
+        String sql = "select vh.*, o.* from Visits_History vh inner join Owners o on o.id_owners = vh.id_owners where id_visit = ?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, vh.getId_visit());
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                vh.setId_visit(rs.getInt("id_visit"));
+                vh.setQuantity(rs.getInt("quantity"));
+                vh.setProfit(rs.getString("profit"));
+                vh.setId_owners(rs.getInt("id_owners"));
+                
+                return true;
+            }
+            return false;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean updatePets(Pets pet){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "update Pets set name1=?, species=?, race=?, age=?, date_of_birth=?, sex=?, microchip=?, photo=?, tattoo=?, id_owners=? where id_pets=?";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, pet.getName1());
+            ps.setString(2, pet.getSpecies());
+            ps.setString(3, pet.getRace());
+            ps.setInt(4, pet.getAge());
+            ps.setString(5, pet.getDate_of_birth());
+            ps.setString(6, pet.getSex());
+            ps.setBoolean(7, pet.isMicrochip());
+            ps.setString(8, pet.getPhoto());
+            ps.setBoolean(9, pet.isTattoo());
+            ps.setInt(10, pet.getId_owners());
+            ps.setInt(11, pet.getId_pets());
+            ps.execute();
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean readServices(Additional_Services aS){
+
+        String sql = "select adS.*, o.* from Additional_Services adS inner join Owners o on adS.id_owners = o.id_owners where id_services = ?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, aS.getId_services());
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                aS.setId_services(rs.getInt("id_services"));
+                aS.setType_service(rs.getString("type_service"));
+                aS.setId_owners(rs.getInt("id_owners"));
+                
+                return true;
+            }
+            return false;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean addPets(Pets pet){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "insert into Pets (name1, species, race, age, date_of_birth, sex, microchip, photo, tattoo, id_owners) values (?,?,?,?,?,?,?,?,?,?)";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, pet.getName1());
+            ps.setString(2, pet.getSpecies());
+            ps.setString(3, pet.getRace());
+            ps.setInt(4, pet.getAge());
+            ps.setString(5, pet.getDate_of_birth());
+            ps.setString(6, pet.getSex());
+            ps.setBoolean(7, pet.isMicrochip());
+            ps.setString(8, pet.getPhoto());
+            ps.setBoolean(9, pet.isTattoo());
+            ps.setInt(10, pet.getId_owners());
+            ps.execute();            
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
     /*public void mostrarDatos(){
         String query="select * from Additional_Services;";
         try {
@@ -182,9 +323,5 @@ public class Consultas extends Conexion{
           ex.printStackTrace();
         }    
     }*/
-
-    public boolean ver(Doctors modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }

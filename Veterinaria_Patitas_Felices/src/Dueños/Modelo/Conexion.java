@@ -1,4 +1,4 @@
-package Modelo;
+package Dueños.Modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class Conexion {
     String bd="Veterinaria_Patitas_Felices";
     String url = "jdbc:mysql://localhost:3306/";
     String user = "root";
-    String password = "campus2023";
+    String password = "Alejandra";
     
     public Connection getConexion(){
         try{

@@ -1,4 +1,4 @@
-package Modelo;
+package Dueños.Modelo;
 
 public class Pets {
     private int id_pets;

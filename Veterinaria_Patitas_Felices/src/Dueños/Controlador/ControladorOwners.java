@@ -2,27 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controlador;
+package Dueños.Controlador;
 
-import Modelo.Consultas;
-import Modelo.Owners;
-import Modelo.Pets;
-import Vista.FrameU;
+import Dueños.Modelo.Consultas;
+import Dueños.Modelo.Owners;
+import Dueños.Modelo.Pets;
+import Dueños.Modelo.Visits_History;
+import Dueños.Modelo.Additional_Services;
+import Dueños.Vista.FrameU;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorOwners implements ActionListener{
     
     private final Owners modelo;
     private final Pets pets1;
+    private final Visits_History VH;
+    private final Additional_Services aS;
     private final Consultas consultas;
     private final FrameU vista;
     
-    public ControladorOwners(Owners modelo, Pets pets1, Consultas consultas, FrameU vista){
+    public ControladorOwners(Owners modelo, Pets pets1, Visits_History VH, Additional_Services aS, Consultas consultas, FrameU vista){
         this.modelo = modelo;
         this.pets1 = pets1;
+        this.VH = VH;
+        this.aS = aS;
         this.consultas = consultas;
         this.vista = vista;
         this.vista.inicio_sesion.addActionListener(this);
@@ -31,32 +36,31 @@ public class ControladorOwners implements ActionListener{
         this.vista.buttonver.addActionListener(this);
         
         /*buttons to menu*/
+        this.vista.lookB.addActionListener(this);
         this.vista.buttonver.setVisible(false);
         this.vista.updateB.setVisible(false);
         this.vista.lookB.setVisible(false);
         this.vista.visitsB.setVisible(false);
         this.vista.actMas.setVisible(false);
         this.vista.insertPet.setVisible(false);
-        this.vista.verify.setVisible(false);
         this.vista.services.setVisible(false);
         
         /*button and information to update*/
         this.vista.updateB.addActionListener(this);
-        this.vista.updateB.setVisible(false);
-        this.vista.txtName.setVisible(false);
-        this.vista.txtIden.setVisible(false);
-        this.vista.txtAddress.setVisible(false);
-        this.vista.txtPhone.setVisible(false);
-        this.vista.txtEmail.setVisible(false);
-        this.vista.txtEmergency.setVisible(false);
-        this.vista.txtPoints.setVisible(false);
-        this.vista.txtPass.setVisible(false);
         
         /*mostrar info*/
-        this.vista.informacion.setVisible(false);
         
-       
+        /*mostrar visitas*/
+        this.vista.visitsB.addActionListener(this);
         
+        /*update pets*/
+        this.vista.actMas.addActionListener(this);
+        
+        /*look at the services*/
+        this.vista.services.addActionListener(this);
+        
+        /*add pets*/
+        this.vista.insertPet.addActionListener(this);
     }
     
     public void iniciar(){
@@ -78,12 +82,10 @@ public class ControladorOwners implements ActionListener{
             this.vista.visitsB.setVisible(true);
             this.vista.actMas.setVisible(true);
             this.vista.insertPet.setVisible(true);
-            this.vista.verify.setVisible(true);
             this.vista.services.setVisible(true);
         }
         
         /*Look at the information to Owners*/
-        this.vista.informacion.setVisible(true);
         if(e.getSource() == vista.buttonver){
                 
             modelo.setId(Integer.parseInt(vista.obid.getText()));
@@ -104,16 +106,7 @@ public class ControladorOwners implements ActionListener{
                 limpiar();
             }
         }
-        this.vista.updateB.setVisible(true);
-        this.vista.txtName.setVisible(true);
-        this.vista.txtIden.setVisible(true);
-        this.vista.txtAddress.setVisible(true);
-        this.vista.txtPhone.setVisible(true);
-        this.vista.txtEmail.setVisible(true);
-        this.vista.txtEmergency.setVisible(true);
-        this.vista.txtPoints.setVisible(true);
-        this.vista.txtPass.setVisible(true);
-        if(e.getSource() == vista.updateB){ /*Update the information*/
+        if(e.getSource() == vista.updateB){ /*Update the information to owners*/
             
             modelo.setId(Integer.parseInt(vista.obid.getText()));
             modelo.setName1(vista.txtName.getText());
@@ -157,10 +150,104 @@ public class ControladorOwners implements ActionListener{
                 limpiar();
             }
         }
+        
+        if(e.getSource() == vista.visitsB){
+            VH.setId_visit(Integer.parseInt(vista.obid.getText()));
+            
+            if(consultas.readVisits(VH)){
+                vista.informacion.setText(VH.getQuantity()
+                    + '\n' + VH.getProfit()
+                    + '\n' + VH.getId_owners());
+                limpiar();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No se encontraron visitas.");
+                limpiar();
+            }
+        }
+        
+        if(e.getSource() == vista.actMas){ /*Update the information to pets*/
+            
+            pets1.setId_pets(Integer.parseInt(vista.obid.getText()));
+            pets1.setName1(vista.txtNa.getText());
+            pets1.setSpecies(vista.txtSpe.getText());
+            pets1.setRace(vista.txtRace.getText());
+            pets1.setAge(Integer.parseInt(vista.txtAge.getText()));
+            pets1.setDate_of_birth(vista.txtDateB.getText());
+            pets1.setSex(vista.txtSex.getText());
+            pets1.setMicrochip(Boolean.parseBoolean(vista.txtMicro.getText()));
+            pets1.setPhoto(vista.txtPhoto.getText());
+            pets1.setTattoo(Boolean.parseBoolean(vista.txtTattoo.getText()));
+            pets1.setId_owners(Integer.parseInt(vista.txtOwner.getText()));
+            
+            if(consultas.updatePets(pets1)){
+                JOptionPane.showMessageDialog(null, "Datos de mascota actualizada.");
+                limpiar();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al actualizar");
+                limpiar();
+            }
+        }
+        
+        if(e.getSource() == vista.services){ /*look at the information to pets*/
+                
+            aS.setId_services(Integer.parseInt(vista.obid.getText()));
+
+            if(consultas.readServices(aS)){
+                vista.informacion.setText(aS.getType_service()
+                        + '\n' + aS.getId_owners());
+                limpiar();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No se encontraron servicios adicionales.");
+                limpiar();
+            }
+        }
+        
+        if(e.getSource() == vista.insertPet){
+            pets1.setName1(vista.txtNa.getText());
+            pets1.setSpecies(vista.txtSpe.getText());
+            pets1.setRace(vista.txtRace.getText());
+            pets1.setAge(Integer.parseInt(vista.txtAge.getText()));
+            pets1.setDate_of_birth(vista.txtDateB.getText());
+            pets1.setSex(vista.txtSex.getText());
+            pets1.setMicrochip(Boolean.parseBoolean(vista.txtMicro.getText()));
+            pets1.setPhoto(vista.txtPhoto.getText());
+            pets1.setTattoo(Boolean.parseBoolean(vista.txtTattoo.getText()));
+            pets1.setId_owners(Integer.parseInt(vista.txtOwner.getText()));
+            
+            if(consultas.addPets(pets1)){
+                JOptionPane.showMessageDialog(null, "Mascota agregada.");
+                limpiar();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al agregar mascota.");
+                limpiar();
+            }
+        }
     }
     
     public void limpiar(){
         vista.obid.setText(null);
         vista.inicio_id.setText(null);
+        vista.txtName.setText(null);
+        vista.txtIden.setText(null);
+        vista.txtAddress.setText(null);
+        vista.txtPhone.setText(null);
+        vista.txtEmail.setText(null);
+        vista.txtEmergency.setText(null);
+        vista.txtPoints.setText(null);
+        vista.txtPass.setText(null);
+        vista.txtNa.setText(null);
+        vista.txtSpe.setText(null);
+        vista.txtRace.setText(null);
+        vista.txtAge.setText(null);
+        vista.txtDateB.setText(null);
+        vista.txtSex.setText(null);
+        vista.txtMicro.setText(null);
+        vista.txtPhoto.setText(null);
+        vista.txtTattoo.setText(null);
+        vista.txtOwner.setText(null);
     }
 }

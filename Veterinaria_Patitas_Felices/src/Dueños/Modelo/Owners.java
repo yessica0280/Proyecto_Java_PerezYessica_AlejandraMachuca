@@ -1,4 +1,4 @@
-package Modelo;
+package Dueños.Modelo;
 
 public class Owners {
     private int id;
