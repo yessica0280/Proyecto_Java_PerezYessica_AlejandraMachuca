@@ -28,11 +28,14 @@ public class Vista_Doctors extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         panel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         password1 = new javax.swing.JTextField();
         inicio = new javax.swing.JButton();
+        ids = new javax.swing.JLabel();
+        pas = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
         add = new javax.swing.JButton();
         update = new javax.swing.JButton();
@@ -58,59 +61,52 @@ public class Vista_Doctors extends javax.swing.JFrame {
         tatto = new javax.swing.JTextField();
         doctor = new javax.swing.JLabel();
         pets = new javax.swing.JLabel();
+        patitas = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         jTextField1.setText("jTextField1");
 
+        jLabel5.setText("jLabel5");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel1.setBackground(new java.awt.Color(208, 251, 208));
+        panel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(51, 51, 255));
+        jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Doctors");
+        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 80, -1));
 
         id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel1.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 100, 20));
 
         password1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel1.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 100, 20));
 
         inicio.setBackground(new java.awt.Color(151, 216, 151));
+        inicio.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         inicio.setText("Inicio sesión");
+        inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inicioActionPerformed(evt);
+            }
+        });
+        panel1.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96)
-                        .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(inicio)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(inicio)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        ids.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        ids.setText("ID:");
+        panel1.add(ids, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 40, -1));
+
+        pas.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        pas.setText("PASSWORD");
+        panel1.add(pas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
 
         panel2.setBackground(new java.awt.Color(208, 251, 208));
+        panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add.setBackground(new java.awt.Color(151, 216, 151));
         add.setText("Add");
@@ -119,6 +115,7 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
+        panel2.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
 
         update.setBackground(new java.awt.Color(151, 216, 151));
         update.setText("Update");
@@ -127,12 +124,15 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
+        panel2.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, -1, -1));
 
         view.setBackground(new java.awt.Color(151, 216, 151));
         view.setText("View");
+        panel2.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, -1, -1));
 
         clean.setBackground(new java.awt.Color(151, 216, 151));
         clean.setText("Clean");
+        panel2.add(clean, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
 
         id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         id2.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +140,7 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 id2ActionPerformed(evt);
             }
         });
+        panel2.add(id2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 71, -1));
 
         name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         name.addActionListener(new java.awt.event.ActionListener() {
@@ -147,29 +148,41 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 nameActionPerformed(evt);
             }
         });
+        panel2.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 71, -1));
 
         espe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(espe, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 71, -1));
 
         phone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 71, -1));
 
         email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 71, -1));
 
         password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 71, -1));
 
         information.setColumns(20);
         information.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         information.setRows(5);
         jScrollPane1.setViewportView(information);
 
+        panel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 230, 210));
+
         names.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(names, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 77, -1));
 
         species.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(species, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 77, -1));
 
         micro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(micro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 77, -1));
 
         age.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 77, -1));
 
         date_of.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(date_of, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 77, -1));
 
         photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         photo.addActionListener(new java.awt.event.ActionListener() {
@@ -177,8 +190,10 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 photoActionPerformed(evt);
             }
         });
+        panel2.add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 77, -1));
 
         id_owners.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(id_owners, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 77, -1));
 
         race.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
         race.addActionListener(new java.awt.event.ActionListener() {
@@ -186,139 +201,38 @@ public class Vista_Doctors extends javax.swing.JFrame {
                 raceActionPerformed(evt);
             }
         });
+        panel2.add(race, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 77, -1));
 
         sex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(94, 159, 94)));
+        panel2.add(sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 77, -1));
+        panel2.add(tatto, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 77, 20));
 
-        doctor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doctor.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         doctor.setText("Update doctor");
+        panel2.add(doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
-        pets.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pets.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        pets.setForeground(new java.awt.Color(51, 0, 51));
         pets.setText("Add pets");
+        panel2.add(pets, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 70, -1));
 
-        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
-        panel2.setLayout(panel2Layout);
-        panel2Layout.setHorizontalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(id2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(espe, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(doctor)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clean)
-                    .addComponent(add)
-                    .addComponent(update)
-                    .addComponent(view))
-                .addGap(73, 73, 73))
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(race, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(species, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(names, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(sex, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                            .addComponent(date_of)
-                            .addComponent(age))
-                        .addGap(18, 18, 18)
-                        .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(250, 250, 250)
-                                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(micro, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                    .addComponent(photo)))
-                            .addGroup(panel2Layout.createSequentialGroup()
-                                .addGap(195, 195, 195)
-                                .addComponent(pets, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(32, 32, 32)
-                        .addComponent(id_owners, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panel2Layout.setVerticalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel2Layout.createSequentialGroup()
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panel2Layout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(doctor)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(id2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(espe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(16, 16, 16)
-                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel2Layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(add)
-                            .addGap(24, 24, 24)
-                            .addComponent(update)
-                            .addGap(20, 20, 20)
-                            .addComponent(view)
-                            .addGap(34, 34, 34)
-                            .addComponent(clean))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(pets)
-                .addGap(18, 18, 18)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(micro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(names, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(id_owners, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(date_of, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(species, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(race, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        patitas.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        patitas.setText("VETERINARIA PATITAS FELICES");
+        panel2.add(patitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -347,6 +261,10 @@ public class Vista_Doctors extends javax.swing.JFrame {
     private void id2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_id2ActionPerformed
+
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,10 +312,12 @@ public class Vista_Doctors extends javax.swing.JFrame {
     public javax.swing.JTextField id;
     public javax.swing.JTextField id2;
     public javax.swing.JTextField id_owners;
+    public javax.swing.JLabel ids;
     public javax.swing.JTextArea information;
     public javax.swing.JButton inicio;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JTextField micro;
@@ -405,8 +325,10 @@ public class Vista_Doctors extends javax.swing.JFrame {
     public javax.swing.JTextField names;
     public javax.swing.JPanel panel1;
     public javax.swing.JPanel panel2;
+    public javax.swing.JLabel pas;
     public javax.swing.JTextField password;
     public javax.swing.JTextField password1;
+    public javax.swing.JLabel patitas;
     public javax.swing.JLabel pets;
     public javax.swing.JTextField phone;
     public javax.swing.JTextField photo;

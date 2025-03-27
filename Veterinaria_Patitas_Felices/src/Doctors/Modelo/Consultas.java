@@ -2,6 +2,7 @@ package Doctors.Modelo;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Consultas extends Conexion{
     public boolean ver(Doctors doc) {
@@ -16,7 +17,7 @@ public class Consultas extends Conexion{
             ps.setInt(1, doc.getId_doctor());
             rs = ps.executeQuery();
             
-            while (rs.next()) {
+            if (rs.next()) {
                 
                 doc.setName1(rs.getString("name1"));
                 doc.setSpeciality(rs.getString("speciality"));
@@ -24,8 +25,9 @@ public class Consultas extends Conexion{
                 doc.setEmail(rs.getString("email"));
                 doc.setPassword(rs.getString("password1"));
                 return true;
-            }
-            return false;
+            }else {
+                return false;
+            }   
         }
         catch (SQLException e) {
             System.err.println(e);
@@ -40,6 +42,8 @@ public class Consultas extends Conexion{
             }
         }
     }
+    
+    
     
     public boolean updateDoctor(Doctors doc) {
         PreparedStatement ps = null;
@@ -105,6 +109,39 @@ public class Consultas extends Conexion{
                 cx.close();
             }
             catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean password(Doctors doc){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select * from Doctors where password1=?";
+        
+        try{
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, doc.getPassword());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
                 System.err.println(e);
             }
         }
