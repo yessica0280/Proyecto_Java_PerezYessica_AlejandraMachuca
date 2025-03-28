@@ -39,12 +39,13 @@ public class vista_menu extends javax.swing.JFrame {
         view = new javax.swing.JButton();
         update = new javax.swing.JButton();
         add = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panel1m.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menú Doctors");
 
@@ -53,22 +54,22 @@ public class vista_menu extends javax.swing.JFrame {
         panel1mLayout.setHorizontalGroup(
             panel1mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1mLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(304, 304, 304)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel1mLayout.setVerticalGroup(
             panel1mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1mLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+            .addGroup(panel1mLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         panel2m.setBackground(new java.awt.Color(255, 255, 255));
 
         view.setBackground(new java.awt.Color(153, 153, 255));
-        view.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        view.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         view.setForeground(new java.awt.Color(255, 255, 255));
         view.setText("View Doctors");
         view.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +79,7 @@ public class vista_menu extends javax.swing.JFrame {
         });
 
         update.setBackground(new java.awt.Color(153, 153, 255));
-        update.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        update.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         update.setForeground(new java.awt.Color(255, 255, 255));
         update.setText("Update Doctors");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +89,7 @@ public class vista_menu extends javax.swing.JFrame {
         });
 
         add.setBackground(new java.awt.Color(153, 153, 255));
-        add.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        add.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         add.setForeground(new java.awt.Color(255, 255, 255));
         add.setText("Add Pets");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -97,28 +98,37 @@ public class vista_menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Escritorio\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\descarga__4_-removebg-preview.png")); // NOI18N
+        jLabel3.setText("jLabel3");
+
         javax.swing.GroupLayout panel2mLayout = new javax.swing.GroupLayout(panel2m);
         panel2m.setLayout(panel2mLayout);
         panel2mLayout.setHorizontalGroup(
             panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2mLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(69, 69, 69)
                 .addComponent(view)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(update)
-                .addGap(34, 34, 34)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(panel2mLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         panel2mLayout.setVerticalGroup(
             panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2mLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(view)
-                    .addComponent(update)
-                    .addComponent(add))
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,7 +136,9 @@ public class vista_menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel1m, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panel2m, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(panel2m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,6 +221,7 @@ public class vista_menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton add;
     public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel3;
     public javax.swing.JPanel panel1m;
     public javax.swing.JPanel panel2m;
     public javax.swing.JButton update;
