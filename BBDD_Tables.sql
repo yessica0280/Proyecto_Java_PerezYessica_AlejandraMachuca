@@ -121,6 +121,7 @@ create table Medicines(
     price int(15) not null
 );
 
+select * from Medicines;
 select expiration_date from Medicines;
 
 create table Products(

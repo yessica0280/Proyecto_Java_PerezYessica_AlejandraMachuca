@@ -6,17 +6,17 @@ public class Doctors {
     private String speciality;
     private int phone;
     private String email;
-    private String password;
+    private String password1;
 
     public Doctors() {}
 
-    public Doctors(int id_doctor, String name1, String speciality, int phone, String email, String password) {
+    public Doctors(int id_doctor, String name1, String speciality, int phone, String email, String password1) {
         this.id_doctor = id_doctor;
         this.name1 = name1;
         this.speciality = speciality;
         this.phone = phone;
         this.email = email;
-        this.password = password;
+        this.password1 = password1;
     }
 
     public int getId_doctor() {
@@ -59,11 +59,11 @@ public class Doctors {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword1() {
+        return password1;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword1(String password1) {
+        this.password1 = password1;
     }
 }

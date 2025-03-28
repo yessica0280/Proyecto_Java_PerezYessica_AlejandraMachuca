@@ -1,33 +1,72 @@
 package Administrator.Modelo;
 
 import java.sql.*; 
+import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 public class Consultas extends Conexion{
+    
+    /*login*/
+    public boolean password(Administrator adm){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select * from Administrator where password1=?";
+        
+        try{
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, adm.getPassword());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
     
     /*View Doctors*/
     public boolean viewDoctors(Doctors doctor) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
         String sql = "select * from Doctors where id_doctor=?";
         
         try {
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, doctor.getId_doctor());
             rs = ps.executeQuery();
             
-            while (rs.next()) {
+            if (rs.next()) {
                 doctor.setName1(rs.getString("name1"));
                 doctor.setSpeciality(rs.getString("speciality"));
                 doctor.setPhone(rs.getInt("phone"));
                 doctor.setEmail(rs.getString("email"));
-                doctor.setPassword(rs.getString("password1"));
+                doctor.setPassword1(rs.getString("password1"));
                 return true;
             }
-            return false;
+            else{
+                return false;
+            }
         }
         catch (SQLException e) {
             System.err.println(e);
@@ -49,9 +88,10 @@ public class Consultas extends Conexion{
         String sql = "select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets=?";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection cx = getConexion();
+        Connection cx = null;
 
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, pet.getId_pets());
             rs = ps.executeQuery();
@@ -93,9 +133,10 @@ public class Consultas extends Conexion{
         String sql = "select * from Owners where id_owners=?";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection cx = getConexion();
+        Connection cx = null;
 
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, own.getId());
             rs = ps.executeQuery();
@@ -131,11 +172,12 @@ public class Consultas extends Conexion{
     public boolean obtener(Administrator admi) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
         String sql = "select * from Administrator where id_administrator=?";
         
         try {
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, admi.getId_administrator());
             rs = ps.executeQuery();
@@ -166,16 +208,17 @@ public class Consultas extends Conexion{
     }
     
     /*View medicines*/
-    public boolean ViewMedicines(Medicines medicines){
+    public boolean View_Medicines(Medicines medicines) throws ParseException{
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
-        String sql = "select expiration_date from Medicines";
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-mm-dd");
+        String sql = "select name1, type1, manufacturer, quantity, expiration_date, price from Medicines where id_medicine = ?";
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = sf.format(new Date());
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, medicines.getId_medicine());
             rs = ps.executeQuery();
@@ -187,6 +230,19 @@ public class Consultas extends Conexion{
                 medicines.setQuantity(rs.getInt("quantity"));
                 medicines.setExpiracion_date(rs.getString("expiration_date"));
                 medicines.setPrice(rs.getInt("price"));
+                
+                String addFechaExpiration = rs.getString("expiration_date");
+                Date fechaExpiration = sf.parse(addFechaExpiration);
+                Date fechaActual = sf.parse(fecha);
+                
+                long diferencias = fechaExpiration.getTime() - fechaActual.getTime();
+                
+                if(diferencias < 0){
+                    JOptionPane.showMessageDialog(null, "Este producto ya está vencido.");
+                }
+                else if(diferencias <=30){
+                    JOptionPane.showMessageDialog(null, "El producto vence en " + diferencias + "días.");
+                }
                 return true;
             }
             return false;
@@ -200,18 +256,20 @@ public class Consultas extends Conexion{
     /*Add Doctors*/
     public boolean Add_Doctors(Doctors doct) {
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection cx = getConexion();
+        Connection cx = null;
         
-        String sql = "insert into Doctors(name1, speciality, phone, email, password, id_doctor) values(?, ?, ?, ?, ?, ?)";
+        String sql = "insert into Doctors (name1, speciality, phone, email, password1) values(?, ?, ?, ?, ?)";
         
         try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
             ps.setString(1, doct.getName1());
             ps.setString(2, doct.getSpeciality());
             ps.setInt(3, doct.getPhone());
             ps.setString(4, doct.getEmail());
-            ps.setString(5, doct.getPassword());
-            ps.setInt(6, doct.getId_doctor());
+            ps.setString(5, doct.getPassword1());
+            ps.execute();            
+            return true;
         }
         catch (SQLException e) {
             System.err.println(e);
@@ -225,17 +283,17 @@ public class Consultas extends Conexion{
                 System.err.println(e);
             }
         }
-        return true;
     }
     
     /*add pets*/
     public boolean addPets(Pets pet){
         PreparedStatement ps = null;
-        Connection cx = getConexion();
+        Connection cx = null;
         
         String sql = "insert into Pets (name1, species, race, age, date_of_birth, sex, microchip, photo, tattoo, id_owners) values (?,?,?,?,?,?,?,?,?,?)";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setString(1, pet.getName1());
             ps.setString(2, pet.getSpecies());
@@ -267,11 +325,12 @@ public class Consultas extends Conexion{
     /*add owners*/
     public boolean addOwners(Owners own){
         PreparedStatement ps = null;
-        Connection cx = getConexion();
+        Connection cx = null;
         
-        String sql = "insert into Owners (name1, identification, address, phone, email, emergency_contact, points, password1, id_owners) values (?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into Owners (name1, identification, address, phone, email, emergency_contact, points, password1) values (?,?,?,?,?,?,?,?)";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setString(1, own.getName1());
             ps.setInt(2, own.getIdentification());
@@ -281,7 +340,6 @@ public class Consultas extends Conexion{
             ps.setInt(6, own.getEmergency_contact());
             ps.setString(7, own.getPoints());
             ps.setString(8, own.getPassword1());
-            ps.setInt(9, own.getId());
             ps.execute();            
             return true;
         }
@@ -302,12 +360,13 @@ public class Consultas extends Conexion{
     /*Delete Doctors*/
     public boolean delete(Doctors doctor) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
         String sql = "delete from Doctors where id_doctor=?";
         
         try {
-            ps = con.prepareStatement(sql);
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
             ps.setInt(1, doctor.getId_doctor());
             ps.execute();
         }
@@ -329,11 +388,12 @@ public class Consultas extends Conexion{
     /*delete pets*/
     public boolean deletePets(Pets pet){
         PreparedStatement ps = null;
-        Connection cw = getConexion();
+        Connection cx = null;
         
         String sql = "delete from Pets where id_pets=?";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, pet.getId_pets());
             ps.execute();
@@ -353,14 +413,15 @@ public class Consultas extends Conexion{
         }
     }
     
-    /*delete pets*/
+    /*delete owners*/
     public boolean deleteOwners(Owners own){
         PreparedStatement ps = null;
-        Connection cw = getConexion();
+        Connection cx = null;
         
         String sql = "delete from Owners where id_owners=?";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, own.getId());
             ps.execute();
@@ -383,16 +444,17 @@ public class Consultas extends Conexion{
     /*Update doctor*/
     public boolean updateDoctor(Doctors doc) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
         String sql = "update Doctors set name1=?, speciality=?, phone=?, email=?, password1=? where id_doctor=?";
         try {
-            ps = con.prepareStatement(sql);
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
             ps.setString(1, doc.getName1());
             ps.setString(2, doc.getSpeciality());
             ps.setInt(3, doc.getPhone());
             ps.setString(4, doc.getEmail());
-            ps.setString(5, doc.getPassword());
+            ps.setString(5, doc.getPassword1());
             ps.setInt(6, doc.getId_doctor());
             ps.execute();
             return true;
@@ -406,11 +468,12 @@ public class Consultas extends Conexion{
     /*update pets*/
     public boolean updatePets(Pets pet){
         PreparedStatement ps = null;
-        Connection cx = getConexion();
+        Connection cx = null;
         
         String sql = "update Pets set name1=?, species=?, race=?, age=?, date_of_birth=?, sex=?, microchip=?, photo=?, tattoo=?, id_owners=? where id_pets=?";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setString(1, pet.getName1());
             ps.setString(2, pet.getSpecies());
@@ -443,11 +506,12 @@ public class Consultas extends Conexion{
     /*update owners*/
     public boolean updateOwners(Owners own){
         PreparedStatement ps = null;
-        Connection cx = getConexion();
+        Connection cx = null;
         
         String sql = "update Owners set name1=?, identification=?, address=?, phone=?, email=?, emergency_contact=?, points=?, password1=? where id_owners=?";
         
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setString(1, own.getName1());
             ps.setInt(2, own.getIdentification());
@@ -478,11 +542,12 @@ public class Consultas extends Conexion{
     /*Update administrator*/
     public boolean update(Administrator admi) {
         PreparedStatement ps = null;
-        Connection con = getConexion();
+        Connection cx = null;
         
         String sql = "update Administrator set name1=?, phone=?, email=?, nit=?, password=?, where id_administrator=?";
         
         try {
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setString(1, admi.getName());
             ps.setInt(2, admi.getPhone());
