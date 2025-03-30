@@ -183,7 +183,6 @@ public class Consultas extends Conexion{
             rs = ps.executeQuery();
             
             while (rs.next()) {
-                admi.setId_administrator(rs.getInt("id_administrator"));
                 admi.setName(rs.getString("name1"));
                 admi.setPhone(rs.getInt("phone"));
                 admi.setEmail(rs.getString("email"));
@@ -252,6 +251,241 @@ public class Consultas extends Conexion{
             return false;
         }
     }
+    
+    /*View pets attended*/
+    public boolean View_pets_attended(PetsAttended petsA) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = """
+                    select p.id_pets, p.name1, p.species, p.age, pro.procedure_type, pro.description1, pro.inputs, v.quantity, vh.name2, vh.application_date, vh.next_dose from Pets p 
+                    inner join Procedures pro on p.id_pets = pro.id_pets 
+                    inner join Owners o on p.id_owners = o.id_owners 
+                    inner join Visits_History v on v.id_owners = o.id_owners
+                    inner join Vaccine_History vh on p.id_pets = vh.id_pets""";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                petsA.setId_pets(rs.getInt("id_pets"));
+                petsA.setName1(rs.getString("name1"));
+                petsA.setSpecies(rs.getString("species"));
+                petsA.setAge(rs.getInt("age"));
+                petsA.setProcedure_type(rs.getString("procedure_type"));
+                petsA.setDescription1(rs.getString("description1"));
+                petsA.setInputs(rs.getString("inputs"));
+                petsA.setQuantity(rs.getInt("quantity"));
+                petsA.setNameV(rs.getString("name2"));
+                petsA.setApplication_date(rs.getString("application_date"));
+                String nextDose = rs.getString("next_dose");
+                petsA.setNext_dose(nextDose);
+                
+                JOptionPane.showMessageDialog(null, "Next dose of vaccine: " + nextDose); 
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*view inventary of medicines used*/
+    public boolean View_inventary(Inventary inv) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select c.id_consult, m.name1, m.expiration_date from Consult c inner join Medicines m on find_in_set(m.name1, replace(c.prescription, ' ', ''))";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                inv.setId_Consult(rs.getInt("id_consult"));
+                inv.setName1(rs.getString("name1"));
+                inv.setExpirationDate(rs.getString("expiration_date"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*view additional services*/
+    public boolean View_services(AdditionalServices adS) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select type_service, count(*) as service_count from Additional_Services group by type_service order by service_count desc limit 1";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                adS.setType_service(rs.getString("type_service"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*view veterinarian */
+    public boolean View_veterinarian_performance(VeterinarianPerformance vp) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select c.id_doctor, d.name1, count(*) as cant_consults from Consult c inner join Doctors d on c.id_doctor = d.id_doctor where c.id_doctor = ? group by id_doctor order by cant_consults desc";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, vp.getId_doctor());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                vp.setId_doctor(rs.getInt("id_doctor"));
+                vp.setName1(rs.getString("name1"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*View inventary medicines*/
+    /*public boolean viewInventary(Inventary inv) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select i.*, m.* from Inventary i inner join Medicines m on i.id_medicine = m.id_medicine where i.id_medicine = ?";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, inv.getId_inventary());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                inv.setSupplier(rs.getString("supplier"));
+                inv.setId_medicine(rs.getInt("id_medicine"));
+                inv.setName1(rs.getString("name1"));
+                inv.setType1(rs.getString("type1"));
+                inv.setManufacturer(rs.getString("manufacturer"));
+                inv.setQuantity(rs.getInt("quantity"));
+                inv.setExpiration_date(rs.getString("expiration_date"));
+                inv.setPrice(rs.getInt("price"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }*/
+    
+    /*View inventary products*/
+    /*public boolean viewInventaryProducts(InventaryProducts invP) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = null;
+        
+        String sql = "select i.*, p.* from Inventary i inner join Products p on i.id_product = p.id_product where i.id_product = ?";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, invP.getId_inventary());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                invP.setSupplier(rs.getString("supplier"));
+                invP.setId_producto(rs.getInt("id_product"));
+                invP.setType1(rs.getString("type1"));
+                invP.setManufacturer(rs.getString("manufacturer"));
+                invP.setQuantity(rs.getInt("quantity"));
+                invP.setExpiration_date(rs.getString("expiration_date"));
+                invP.setPrice(rs.getInt("price"));
+                return true;
+            }
+            return false;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }*/
     
     /*Add Doctors*/
     public boolean Add_Doctors(Doctors doct) {
@@ -340,6 +574,40 @@ public class Consultas extends Conexion{
             ps.setInt(6, own.getEmergency_contact());
             ps.setString(7, own.getPoints());
             ps.setString(8, own.getPassword1());
+            ps.execute();            
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*add adoption*/
+    public boolean addAdoption(Adoption adp){
+        PreparedStatement ps = null;
+        Connection cx = null;
+        
+        String sql = "insert into Adoption (full_name, phone, email, address, adoption_date, id_administrator, id_owners) values (?,?,?,?,?,?,?)";
+        
+        try{
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, adp.getFull_name());
+            ps.setInt(2, adp.getPhone());
+            ps.setString(3, adp.getEmail());
+            ps.setString(4, adp.getAddress());
+            ps.setString(5, adp.getAdoption_date());
+            ps.setInt(6, adp.getId_administrator());
+            ps.setInt(7, adp.getId_owners());
             ps.execute();            
             return true;
         }

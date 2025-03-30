@@ -153,22 +153,22 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="speciUp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="idUpp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idUp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="nameUpp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameUp" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="specyUpp" min="-2" pref="128" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="phoneUp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="phoneUpp" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -195,11 +195,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -212,10 +214,10 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="speciUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="idUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nameUp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneUp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idUpp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameUpp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="specyUpp" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneUpp" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="emailUp" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="passUp" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -231,7 +233,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="speciUp">
+            <Component class="javax.swing.JTextField" name="idUpp">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -252,7 +254,7 @@
                 <Property name="text" type="java.lang.String" value="Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="idUp">
+            <Component class="javax.swing.JTextField" name="nameUpp">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -265,7 +267,7 @@
                 <Property name="text" type="java.lang.String" value="Speciality"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="nameUp">
+            <Component class="javax.swing.JTextField" name="specyUpp">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -278,9 +280,9 @@
                 <Property name="text" type="java.lang.String" value="Phone"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="phoneUp">
+            <Component class="javax.swing.JTextField" name="phoneUpp">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneUpActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneUppActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

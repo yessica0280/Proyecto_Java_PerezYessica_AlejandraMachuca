@@ -32,14 +32,14 @@ public class Vista_update extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        speciUp = new javax.swing.JTextField();
+        idUpp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idUp = new javax.swing.JTextField();
+        nameUpp = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        nameUp = new javax.swing.JTextField();
+        specyUpp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        phoneUp = new javax.swing.JTextField();
+        phoneUpp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         emailUp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -160,9 +160,9 @@ public class Vista_update extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jLabel4.setText("Phone");
 
-        phoneUp.addActionListener(new java.awt.event.ActionListener() {
+        phoneUpp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneUpActionPerformed(evt);
+                phoneUppActionPerformed(evt);
             }
         });
 
@@ -196,19 +196,19 @@ public class Vista_update extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(speciUp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idUpp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idUp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameUpp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(nameUp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(specyUpp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(phoneUp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneUpp, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,11 +230,12 @@ public class Vista_update extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel4)))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel4))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,10 +243,10 @@ public class Vista_update extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(speciUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phoneUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idUpp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameUpp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(specyUpp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneUpp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(passUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -718,9 +719,9 @@ public class Vista_update extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailUpActionPerformed
 
-    private void phoneUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneUpActionPerformed
+    private void phoneUppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneUppActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_phoneUpActionPerformed
+    }//GEN-LAST:event_phoneUppActionPerformed
 
     private void passUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passUpActionPerformed
         // TODO add your handling code here:
@@ -774,10 +775,10 @@ public class Vista_update extends javax.swing.JFrame {
     public javax.swing.JTextField emailUpO;
     public javax.swing.JTextField emergencyUpO;
     public javax.swing.JTextField idOwnUpP;
-    public javax.swing.JTextField idUp;
     public javax.swing.JTextField idUpA;
     public javax.swing.JTextField idUpO;
     public javax.swing.JTextField idUpP;
+    public javax.swing.JTextField idUpp;
     public javax.swing.JTextField idenUpO;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -820,23 +821,23 @@ public class Vista_update extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JTextField microUpP;
-    public javax.swing.JTextField nameUp;
     public javax.swing.JTextField nameUpA;
     public javax.swing.JTextField nameUpO;
     public javax.swing.JTextField nameUpP;
+    public javax.swing.JTextField nameUpp;
     public javax.swing.JTextField nitUpA;
     public javax.swing.JTextField passUp;
     public javax.swing.JTextField passUpA;
     public javax.swing.JTextField passUpO;
-    public javax.swing.JTextField phoneUp;
     public javax.swing.JTextField phoneUpA;
     public javax.swing.JTextField phoneUpO;
+    public javax.swing.JTextField phoneUpp;
     public javax.swing.JTextField photoUpP;
     public javax.swing.JTextField pointsUpO;
     public javax.swing.JTextField raceUpP;
     public javax.swing.JTextField sexUpP;
-    public javax.swing.JTextField speciUp;
     public javax.swing.JTextField speciesUpP;
+    public javax.swing.JTextField specyUpp;
     public javax.swing.JTextField tattooUpP;
     public javax.swing.JButton upda1;
     public javax.swing.JButton upda2;

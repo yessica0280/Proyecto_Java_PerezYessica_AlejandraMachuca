@@ -6,6 +6,7 @@ import Administrator.Modelo.Medicines;
 import Administrator.Modelo.Consultas;
 import Administrator.Modelo.Pets;
 import Administrator.Modelo.Owners;
+import Administrator.Modelo.Adoption;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -17,13 +18,15 @@ public class ControladorAdd implements ActionListener{
     Consultas consultas;
     Pets pets;
     Owners owners;
+    Adoption adp;
     
-    public ControladorAdd(Vista_add vistaAdd, Doctors doctors, Consultas consultas, Medicines medis, Pets pets, Owners owners){
+    public ControladorAdd(Vista_add vistaAdd, Doctors doctors, Consultas consultas, Medicines medis, Pets pets, Owners owners, Adoption adp){
         this.vistaAdd = vistaAdd;
         this.doctors = doctors;
         this.medis = medis;
         this.pets = pets;
         this.owners = owners;
+        this.adp = adp;
         this.consultas = consultas;
         
         this.vistaAdd.add1.addActionListener(this);
@@ -42,7 +45,7 @@ public class ControladorAdd implements ActionListener{
             doctors.setPassword1(vistaAdd.passTxt.getText());
             
             if (consultas.Add_Doctors(doctors)) {
-                JOptionPane.showMessageDialog(null, "Doctors successfully updated");
+                JOptionPane.showMessageDialog(null, "Doctor successfully added.");
             }
             else {
                 JOptionPane.showMessageDialog(null, "Error when adding.");
@@ -63,7 +66,7 @@ public class ControladorAdd implements ActionListener{
             pets.setId_owners(Integer.parseInt(vistaAdd.idOwn.getText()));
             
             if(consultas.addPets(pets)){
-                JOptionPane.showMessageDialog(null, "Pet successfully added");
+                JOptionPane.showMessageDialog(null, "Pet successfully added.");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Error when adding.");
@@ -83,7 +86,25 @@ public class ControladorAdd implements ActionListener{
             
             
             if(consultas.addOwners(owners)){
-                JOptionPane.showMessageDialog(null, "Owner successfully added");
+                JOptionPane.showMessageDialog(null, "Owner successfully added.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error when adding.");
+            }
+        }
+        
+        /*add adoptions*/
+        if(e.getSource() == vistaAdd.addAp){
+            adp.setFull_name(vistaAdd.fullNameAp.getText());
+            adp.setPhone(Integer.parseInt(vistaAdd.phoneAp.getText()));
+            adp.setEmail(vistaAdd.emailAp.getText());
+            adp.setAddress(vistaAdd.addressAp.getText());
+            adp.setAdoption_date(vistaAdd.adoptionAp.getText());
+            adp.setId_administrator(Integer.parseInt(vistaAdd.AdminAp.getText()));
+            adp.setId_owners(Integer.parseInt(vistaAdd.ownAp.getText()));
+            
+            if(consultas.addAdoption(adp)){
+                JOptionPane.showMessageDialog(null, "Adoption successfully added.");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Error when adding.");

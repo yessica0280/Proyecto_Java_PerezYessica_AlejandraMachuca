@@ -39,15 +39,15 @@ public class ControladorUpdate implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         /*update doctors*/
         if (e.getSource() == vistaUp.upda1) {
-            doctors.setId_doctor(Integer.parseInt(vistaUp.idUp.getText()));
-            doctors.setName1(vistaUp.nameUp.getText());
-            doctors.setSpeciality(vistaUp.speciUp.getText());
-            doctors.setPhone(Integer.parseInt(vistaUp.phoneUp.getText()));
+            doctors.setId_doctor(Integer.parseInt(vistaUp.idUpp.getText()));
+            doctors.setName1(vistaUp.nameUpp.getText());
+            doctors.setSpeciality(vistaUp.specyUpp.getText());
+            doctors.setPhone(Integer.parseInt(vistaUp.phoneUpp.getText()));
             doctors.setEmail(vistaUp.emailUp.getText());
             doctors.setPassword1(vistaUp.passUp.getText());
             
             if (consultas.updateDoctor(doctors)) {
-                JOptionPane.showMessageDialog(null, "Doctor successfully updated");
+                JOptionPane.showMessageDialog(null, "Doctor successfully updated.");
             }
             else {
                 JOptionPane.showMessageDialog(null, "Error when updating.");
@@ -70,10 +70,10 @@ public class ControladorUpdate implements ActionListener{
             pets.setId_owners(Integer.parseInt(vistaUp.idOwnUpP.getText()));
             
             if(consultas.updatePets(pets)){
-                JOptionPane.showMessageDialog(null, "Datos de mascota actualizada.");
+                JOptionPane.showMessageDialog(null, "Pet successfully updated.");
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar");
+                JOptionPane.showMessageDialog(null, "Error when updating.");
             }
         }
         
@@ -91,11 +91,11 @@ public class ControladorUpdate implements ActionListener{
             owners.setPassword1(vistaUp.passUpO.getText());
             
             if(consultas.updateOwners(owners)){
-                JOptionPane.showMessageDialog(null, "Dueño actualizado.");
+                JOptionPane.showMessageDialog(null, "Owner successfully updated.");
  
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar");
+                JOptionPane.showMessageDialog(null, "Error when updating.");
             }
         }
         
@@ -110,11 +110,11 @@ public class ControladorUpdate implements ActionListener{
             admin.setPassword(vistaUp.passUpA.getText());
             
             if(consultas.updateOwners(owners)){
-                JOptionPane.showMessageDialog(null, "Administrador actualizado.");
+                JOptionPane.showMessageDialog(null, "Administrator successfully updated.");
  
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar");
+                JOptionPane.showMessageDialog(null, "Error when updating.");
             }
         }
     }

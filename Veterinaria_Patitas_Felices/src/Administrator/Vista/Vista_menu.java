@@ -6,13 +6,20 @@ package Administrator.Vista;
 
 import Administrator.Controlador.ControladorView;
 import Administrator.Controlador.ControladorAdd;
+import Administrator.Controlador.ControladorDelete;
+import Administrator.Controlador.ControladorReport;
 import Administrator.Controlador.ControladorUpdate;
+import Administrator.Modelo.AdditionalServices;
 import Administrator.Modelo.Administrator;
+import Administrator.Modelo.Adoption;
 import Administrator.Modelo.Consultas;
 import Administrator.Modelo.Doctors;
+import Administrator.Modelo.Inventary;
 import Administrator.Modelo.Medicines;
 import Administrator.Modelo.Owners;
 import Administrator.Modelo.Pets;
+import Administrator.Modelo.PetsAttended;
+import Administrator.Modelo.VeterinarianPerformance;
 
 /**
  *
@@ -44,6 +51,7 @@ public class Vista_menu extends javax.swing.JFrame {
         delete = new javax.swing.JButton();
         view = new javax.swing.JButton();
         generate = new javax.swing.JButton();
+        reports = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +102,11 @@ public class Vista_menu extends javax.swing.JFrame {
         delete.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
         delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         view.setBackground(new java.awt.Color(153, 153, 255));
         view.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
@@ -110,6 +123,16 @@ public class Vista_menu extends javax.swing.JFrame {
         generate.setForeground(new java.awt.Color(255, 255, 255));
         generate.setText("Generate invoice");
 
+        reports.setBackground(new java.awt.Color(153, 153, 255));
+        reports.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
+        reports.setForeground(new java.awt.Color(255, 255, 255));
+        reports.setText("Reports");
+        reports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,15 +144,18 @@ public class Vista_menu extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(32, 32, 32)
                                 .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
+                                .addComponent(reports, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(generate)))
+                        .addGap(85, 85, 85)
+                        .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -137,15 +163,17 @@ public class Vista_menu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(200, 200, 200)
+                .addGap(133, 133, 133)
+                .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reports, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(44, 44, 44)
                 .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -172,8 +200,9 @@ public class Vista_menu extends javax.swing.JFrame {
         Medicines medis = new Medicines();
         Pets pet = new Pets();
         Owners owners = new Owners();
+        Adoption adp = new Adoption();
         Consultas consultas = new Consultas();
-        ControladorAdd c = new ControladorAdd(vistaadd, doctors, consultas, medis, pet, owners);
+        ControladorAdd c = new ControladorAdd(vistaadd, doctors, consultas, medis, pet, owners, adp);
         
         vistaadd.setVisible(true);
         this.setVisible(false);
@@ -201,12 +230,43 @@ public class Vista_menu extends javax.swing.JFrame {
         Medicines medis = new Medicines();
         Pets pet = new Pets();
         Owners owners = new Owners();
+        Administrator admin = new Administrator();
         Consultas consultas = new Consultas();
-        ControladorView c = new ControladorView(vistaview, doctors, consultas, medis, pet, owners);
+        ControladorView c = new ControladorView(vistaview, doctors, consultas, medis, pet, owners, admin);
         
         vistaview.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        Vista_Delete vistadelete = new Vista_Delete();
+        Doctors doctors = new Doctors();
+        Medicines medis = new Medicines();
+        Pets pet = new Pets();
+        Owners owners = new Owners();
+        Consultas consultas = new Consultas();
+        ControladorDelete c = new ControladorDelete(owners, doctors, pet, medis, consultas, vistadelete);
+        
+        vistadelete.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void reportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsActionPerformed
+        // TODO add your handling code here:
+        Vista_reports vistareport = new Vista_reports();
+        Doctors doctors = new Doctors();
+        Pets pet = new Pets();
+        Consultas consultas = new Consultas();
+        PetsAttended pA = new PetsAttended();
+        Inventary inv = new Inventary();
+        AdditionalServices adS = new AdditionalServices();
+        VeterinarianPerformance vp = new VeterinarianPerformance();
+        ControladorReport c = new ControladorReport(pet, doctors, vistareport, consultas, pA, inv, adS, vp);
+        
+        vistareport.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_reportsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,6 +310,7 @@ public class Vista_menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JButton reports;
     public javax.swing.JButton update;
     public javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
