@@ -114,6 +114,73 @@ public class Consultas extends Conexion{
         }
     }
     
+    public boolean Addva(Vaccine_History vaccine) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+        
+        String sql = "insert into Vaccine_History(name1, lot, application_date, next_dose, id_pets) values(?, ?, ?, ?, ?)";
+        
+        try {
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, vaccine.getId_vaccine());
+            
+            ps.setString(1, vaccine.getName1());
+            ps.setInt(2, vaccine.getLot());
+            ps.setString(3, vaccine.getApplication_date());
+            ps.setString(4, vaccine.getNext_dose());
+            ps.setInt(5, vaccine.getId_pets());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean Addpro(Procedures procedures) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = getConexion();
+        
+        String sql = "insert into Procedures(procedure_type, date1, description1, inputs, recovery_time, id_pets) values(?, ?, ?, ?, ?, ?)";
+        
+        try {
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, procedures.getId_procedure());
+            
+            ps.setString(1, procedures.getProcedure_type());
+            ps.setString(2, procedures.getDate1());
+            ps.setString(3, procedures.getDescription1());
+            ps.setString(4, procedures.getInputs());
+            ps.setString(5, procedures.getRecovery_time());
+            ps.setInt(6, procedures.getId_pets());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
     public boolean password(Doctors doc){
         PreparedStatement ps = null;
         ResultSet rs = null;

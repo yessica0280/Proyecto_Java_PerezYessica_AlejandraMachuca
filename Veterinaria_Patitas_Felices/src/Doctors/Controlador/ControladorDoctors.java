@@ -55,9 +55,14 @@ public class ControladorDoctors implements ActionListener{
             
             if(consultas.password(modelo)){
                 JOptionPane.showMessageDialog(null, "Login exitoso.");
+                vista_menu vistam = new vista_menu();
+        
+                vistam.setVisible(true);
+                this.vistam.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Login incorrect.");
+                vistal.password.setText("");
             }
         }
     }

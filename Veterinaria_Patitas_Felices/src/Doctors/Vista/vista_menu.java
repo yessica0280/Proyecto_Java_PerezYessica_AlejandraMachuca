@@ -4,12 +4,16 @@
  */
 package Doctors.Vista;
 
+import Doctors.Controlador.controladorProcedures;
+import Doctors.Controlador.controlador_Vaccine;
 import Doctors.Controlador.controlador_add;
 import Doctors.Controlador.controlador_view;
 import Doctors.Controlador.controlador_update;
 import Doctors.Modelo.Consultas;
 import Doctors.Modelo.Doctors;
 import Doctors.Modelo.Pets;
+import Doctors.Modelo.Procedures;
+import Doctors.Modelo.Vaccine_History;
 
 /**
  *
@@ -40,6 +44,8 @@ public class vista_menu extends javax.swing.JFrame {
         update = new javax.swing.JButton();
         add = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        addvac = new javax.swing.JButton();
+        addpro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,32 +107,65 @@ public class vista_menu extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Escritorio\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\descarga__4_-removebg-preview.png")); // NOI18N
         jLabel3.setText("jLabel3");
 
+        addvac.setBackground(new java.awt.Color(153, 153, 255));
+        addvac.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        addvac.setForeground(new java.awt.Color(255, 255, 255));
+        addvac.setText("Add Vaccine");
+        addvac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addvacActionPerformed(evt);
+            }
+        });
+
+        addpro.setBackground(new java.awt.Color(153, 153, 255));
+        addpro.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        addpro.setForeground(new java.awt.Color(255, 255, 255));
+        addpro.setText("Add Procedure");
+        addpro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addproActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel2mLayout = new javax.swing.GroupLayout(panel2m);
         panel2m.setLayout(panel2mLayout);
         panel2mLayout.setHorizontalGroup(
             panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2mLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(view)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(update)
-                .addGap(91, 91, 91)
-                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-            .addGroup(panel2mLayout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panel2mLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addvac)
+                    .addComponent(view))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addComponent(update)
+                .addGap(86, 86, 86)
+                .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addpro))
+                .addGap(75, 75, 75))
         );
         panel2mLayout.setVerticalGroup(
             panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2mLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel2mLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(view, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addGroup(panel2mLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addvac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addpro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(panel2mLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
@@ -183,6 +222,29 @@ public class vista_menu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
 
+    private void addvacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addvacActionPerformed
+        // TODO add your handling code here:
+        Vista_Vaccine vistava = new Vista_Vaccine();
+        Doctors doctors = new Doctors();
+        Consultas consultas = new Consultas();
+        Vaccine_History history = new Vaccine_History();
+        controlador_Vaccine controladorva = new controlador_Vaccine(vistava, doctors, consultas, history);
+        vistava.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addvacActionPerformed
+
+    private void addproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addproActionPerformed
+        // TODO add your handling code here:
+        Vista_Procedures vistapro = new Vista_Procedures();
+        Doctors doctors = new Doctors();
+        Consultas consultas = new Consultas();
+        Procedures procedures = new Procedures();
+        
+        controladorProcedures controladorproc = new controladorProcedures(vistapro, doctors, consultas, procedures);
+        vistapro.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addproActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +282,8 @@ public class vista_menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton add;
+    public javax.swing.JButton addpro;
+    public javax.swing.JButton addvac;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JPanel panel1m;

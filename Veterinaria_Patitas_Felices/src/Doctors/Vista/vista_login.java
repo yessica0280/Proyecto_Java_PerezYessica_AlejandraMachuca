@@ -36,7 +36,7 @@ public class vista_login extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        inicio.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        inicio.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         inicio.setForeground(new java.awt.Color(51, 0, 51));
         inicio.setText("Iniciar sesión");
         inicio.addActionListener(new java.awt.event.ActionListener() {
@@ -45,9 +45,11 @@ public class vista_login extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ingresa tu contraseña");
+
+        password.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -59,9 +61,9 @@ public class vista_login extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110)
-                        .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,10 +102,7 @@ public class vista_login extends javax.swing.JFrame {
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         // TODO add your handling code here:
-        vista_menu vistam = new vista_menu();
         
-        vistam.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_inicioActionPerformed
 
     /**

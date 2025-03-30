@@ -72,10 +72,13 @@ public class vista_update extends javax.swing.JFrame {
 
         panel2u.setBackground(new java.awt.Color(255, 255, 255));
 
+        id2.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
+        name.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
+        espe.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         espe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         espe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +86,7 @@ public class vista_update extends javax.swing.JFrame {
             }
         });
 
+        phone.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         phone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,8 +94,10 @@ public class vista_update extends javax.swing.JFrame {
             }
         });
 
+        email.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
+        password.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
         update.setBackground(new java.awt.Color(153, 153, 255));
@@ -112,22 +118,22 @@ public class vista_update extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Escritorio\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\Dog_peeking_around_the_corner_car_decal_dog_sticker__1_-removebg-preview.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel2.setText("Speciality");
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel3.setText("Password");
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel4.setText("Name");
 
-        jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel5.setText("Email");
 
-        jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel6.setText("Id");
 
-        jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel7.setText("Phone");
 
         javax.swing.GroupLayout panel2uLayout = new javax.swing.GroupLayout(panel2u);
@@ -135,30 +141,30 @@ public class vista_update extends javax.swing.JFrame {
         panel2uLayout.setHorizontalGroup(
             panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2uLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
                 .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(espe, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addComponent(name)
-                        .addComponent(id2)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel4))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel2uLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(update)))
+                        .addGap(69, 69, 69)
+                        .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(espe, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                                .addComponent(name)
+                                .addComponent(id2)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel2uLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(volver)))
                 .addGap(43, 43, 43)
                 .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(update)
                     .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                         .addComponent(phone)
                         .addComponent(jLabel3)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addGroup(panel2uLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(volver)))
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -190,11 +196,11 @@ public class vista_update extends javax.swing.JFrame {
                 .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(espe))
-                .addGap(45, 45, 45)
+                .addGap(31, 31, 31)
                 .addGroup(panel2uLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(update)
-                    .addComponent(volver))
-                .addGap(156, 156, 156))
+                    .addComponent(volver)
+                    .addComponent(update))
+                .addGap(170, 170, 170))
             .addGroup(panel2uLayout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))

@@ -90,10 +90,11 @@ public class vista_view extends javax.swing.JFrame {
             }
         });
 
+        id2.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        in.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        in.setText("Ingresa el id");
+        in.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        in.setText("Enter the id");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Escritorio\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\descarga__1_-removebg-preview.png")); // NOI18N
 
@@ -107,10 +108,10 @@ public class vista_view extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(view_set)
-                        .addGap(51, 51, 51)
-                        .addComponent(volver))
+                        .addGap(58, 58, 58)
+                        .addComponent(volver)
+                        .addGap(40, 40, 40)
+                        .addComponent(view_set))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,7 +137,7 @@ public class vista_view extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(view_set)
                             .addComponent(volver))
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(14, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
