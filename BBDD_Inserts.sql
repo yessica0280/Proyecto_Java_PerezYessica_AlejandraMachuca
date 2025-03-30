@@ -11,11 +11,16 @@ insert into Owners values (1, 'Yessica Andrea Perez Machuca', 563148975, 'Calle 
 (9, 'Karla Valentina Parada Perez', 100312789, 'Calle 12 av 34', 318459753, 'karla@gmail.com', 310897534, 1, "karla123"), 
 (10, 'Zully Fernanda Ortiz Avendaño', 100976541, 'Calle 12 av 5', 313597861, 'zully@gmail.com', 311523687, 2, "zully123");
 
-insert into Additional_Services values(1, "Rehabilitation",1),
+insert into Additional_Services values(1, "Hairdressing",1),
 (2, "Transportation",2),
-(3, "Consulting",7),
+(3, "Hairdressing",7),
 (4, "Training",1), /*adiestramiento*/
-(5, "Rehabilitation",3);
+(5, "Rehabilitation",3),
+(6, "Consulting", 6),
+(7, "Surgery", 4),
+(8, "Pet daycare", 5),
+(9, "Hairdressing", 8),
+(10, "Hairdressing", 9);
 
 insert into Pets values ( 1, 'Booby', 'Dog', 'Bichón frisé', 4, "2021-02-21", 'Male', true, "https://mivet.com/wp-content/uploads/fly-images/1472/shutterstock_1541338001-1760x992-c.jpg", false, 1),
 ( 2, 'Mateo', 'Dog', 'Bergamasco', 2, "2023-05-25", 'Male', false, "https://www.discoveranimals.org/uploads/pets/Bergamasco.jpg", false, 2),
@@ -32,23 +37,18 @@ insert into Doctors values(1, 'Dr. Juan Perez', 'Exotic animal veterinarian', 31
 (2, 'Dra. Laura Camacho', 'Veterinary Surgeon', 312547965, 'laura@gmail.com', "laura123"),
 (3, 'Dr. Carlos Bernal', 'Veterinary dermatologist', 311548965, 'carlos@gmail.com', "carlos123"),
 (4, 'Dra. Ana Martínez', 'Veterinary dentist', 310578642, 'ana@gmail.com', "ana123"),
-(5, 'Dr. Roberto Díaz', 'Veterinary Cardiology', 315247965, 'roberto@gmail.com', "roberto123"),
-(6, 'Dra. Carmen Sanchez', 'Veterinary Oncology', 316231789, 'carmen@gmail.com', "carmen123"),
-(7, 'Dr. Javier lopez', 'Equine veterinarian', 314597820, 'javier@gmail.com', "javier123"),
-(8, 'Dra. Alejandra Ramirez', 'Avian veterinarian', 312548502, 'alejandra@gmail.com', "alejandraa123"),
-(9, 'Dr. Miguel Machuca', 'Animal behavior', 310548965, 'miguel@gmail.com', "miguel123"),
-(10, 'Dra. Andrea Perez', 'Veterinary Surgeon', 312789420, 'andrea@gmail.com', "andrea123");
+(5, 'Dr. Roberto Díaz', 'Veterinary Cardiology', 315247965, 'roberto@gmail.com', "roberto123");
 
-insert into Consult values(1, "2022-08-03", '10:00', 'General inquiry', 'reserved', 'Antiparasitic and Antibiotic', 1, 2),
-(2, "2020-05-04", '06:00', 'Preventive consultation', 'Medical examinations were performed', 'Anti-inflammatories and Psychotropics', 2, 2),
-(3, "2021-06-05", '12:00', 'Specialized consultation', 'Ultrasound performed', 'Take atinflammatories 1 daily', 3, 3),
-(4, "2022-07-06", '11:00', 'General inquiry', 'Blood tests were performed', 'Take Psychotropics every 9 hours', 4, 4),
-(5, "2023-08-07", '08:30', 'Preventive consultation', 'Biochemistry performed', 'Take antiparasitics', 5, 5),
-(6, "2024-09-08", '05:20', 'Specialized consultation', 'A cytology was performed', 'Take analgesics every 5 hours', 6, 6),
-(7, "2018-10-09", '04:10', 'General inquiry', 'Observed the signs of the animal', 'Take nutritional supplements', 7, 7),
-(8, "2019-11-10", '01:00', 'Specialized consultation', 'Radiological studies were performed', 'Take antidiarrheal every 8 hours', 8, 8),
-(9, "2018-12-11", '02:40', 'Preventive consultation', 'Medical examinations were performed', 'Take antibiotics', 9, 9),
-(10, "2021-05-12", '03:00', 'General inquiry', 'Radiological studies were performed', 'Take psychotropics every 7 hours', 10, 10);
+insert into Consult values(1, "2022-08-03", '10:00', 'General inquiry', 'reserved', 'Amoxixiline', 1, 2),
+(2, "2020-05-04", '06:00', 'Preventive consultation', 'Medical examinations were performed', 'Ibuprofen', 2, 2),
+(3, "2021-06-05", '12:00', 'Specialized consultation', 'Ultrasound performed', 'Loratadine', 3, 3),
+(4, "2022-07-06", '11:00', 'General inquiry', 'Blood tests were performed', 'Aspirin', 4, 4),
+(5, "2023-08-07", '08:30', 'Preventive consultation', 'Biochemistry performed', 'Loratadine', 5, 5),
+(6, "2024-09-08", '05:20', 'Specialized consultation', 'A cytology was performed', 'Salmetrol', 1, 6),
+(7, "2018-10-09", '04:10', 'General inquiry', 'Observed the signs of the animal', 'Aspirin', 2, 7),
+(8, "2019-11-10", '01:00', 'Specialized consultation', 'Radiological studies were performed', 'Loratadine', 2, 8),
+(9, "2018-12-11", '02:40', 'Preventive consultation', 'Medical examinations were performed', 'Take antibiotics', 2, 9),
+(10, "2021-05-12", '03:00', 'General inquiry', 'Radiological studies were performed', 'Salmetrol', 3, 10);
 
 insert into Procedures values(1, 'Sterilization surgery', '2025-04-10', 'Sterilization of a male dog', 'Anesthesia, sutures, antibiotics', 'Recovery at home for 6 month', 1),
 (2, 'Dental extraction', '2025-05-12', 'Removal of damaged teeth of a cat', 'Anesthesia and antibiotics', 'Rest and soft diet for 8 months', 2),
@@ -94,7 +94,7 @@ insert into Appointments values(1, '2024-10-12', '09:00', 'Confirmed', 'General 
 (9, '2025-04-26', '12:00', 'Pending', 'Blood test', 'Health check', 10),
 (10, '2025-04-28', '14:20', 'Confirmed', 'Vaccination', 'Distemper vaccination', 1);
 
-insert into Medicines values(1, 'Amoxixiline', 'Antibiotic', 'Pharmaceuticals lios', 50, '2025-12-01', 10.000),
+insert into Medicines values(1, 'Amoxixiline', 'Antibiotic', 'Pharmaceuticals lios', 50, '2025-03-30', 10.000),
 (2, 'Ibuprofen', 'Anti-inflammatory', 'Laboratory genfar', 22, '2024-12-10', 55.000),
 (3, 'Paracetamol', 'Analgesic', 'Pharmaco', 100, '2023-10-05', 44.000),
 (4, 'Cirpofloxacin', 'Antibiotic', 'Global pharmaceutica', 90, '2022-04-20',  44.000),
@@ -105,16 +105,16 @@ insert into Medicines values(1, 'Amoxixiline', 'Antibiotic', 'Pharmaceuticals li
 (9, 'Metformin', 'Antidiabetic', 'PharmaLife', 55, '2021-10-20', 74.000),
 (10, 'Aspirin', 'Anti-inflammatory', 'Laboratorio zeta', 86, '2018-03-15', 69.000);
 
-insert into Products values(1, 'Medicamento', 'Global pharmaceuticals', 50, '2026-12-31', 50.000),
-(2, 'Alimento', 'Delta Pharmaceutica', 55, '2025-05-15', 45.000),
-(3, 'Accesorio', 'Laboratory pharma', 15, '2027-05-15', 65.000),
-(4, 'Medicamento', 'Zeta laboratory', 45, '2024-09-20', 35.000),
-(5, 'Alimento', 'PharmaLife', 13, '2025-06-01', 82.000),
-(6, 'Accesorio', 'Pharmaco', 32, '2026-11-25', 54.000),
-(7, 'Medicamento', 'Genfar Laboratory', 29, '2025-01-15', 32.000),
-(8, 'Alimento', 'Lios Pharmaceuticals', 85, '2025-07-10', 62.000),
-(9, 'Accesorio', 'Zeta Laboratory', 42, '2026-10-05', 74.000),
-(10, 'Medicamento', 'Laboratory pharma', 43, '2024-12-30', 52.000);
+insert into Products values(1, 'Medicine', 'Global pharmaceuticals', 50, '2026-12-31', 50.000),
+(2, 'Food', 'Delta Pharmaceutica', 55, '2025-05-15', 45.000),
+(3, 'Accessory', 'Laboratory pharma', 15, '2027-05-15', 65.000),
+(4, 'Medicine', 'Zeta laboratory', 45, '2024-09-20', 35.000),
+(5, 'Food', 'PharmaLife', 13, '2025-06-01', 82.000),
+(6, 'Accessory', 'Pharmaco', 32, '2026-11-25', 54.000),
+(7, 'Medicine', 'Genfar Laboratory', 29, '2025-01-15', 32.000),
+(8, 'Food', 'Lios Pharmaceuticals', 85, '2025-07-10', 62.000),
+(9, 'Accessory', 'Zeta Laboratory', 42, '2026-10-05', 74.000),
+(10, 'Medicine', 'Laboratory pharma', 43, '2024-12-30', 52.000);
 
 insert into Inventary values(1, 'Delta pharmaceutica', 1, 2),
 (2, 'Global pharmaceutica', 5, 6),

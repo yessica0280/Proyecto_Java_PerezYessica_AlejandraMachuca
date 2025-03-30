@@ -2,6 +2,8 @@ create database Veterinaria_Patitas_Felices;
 
 use Veterinaria_Patitas_Felices;
 
+-- drop database Veterinaria_Patitas_Felices;
+
 create table Owners(
 	id_owners int not null auto_increment primary key,
     name1 varchar(255) not null,
@@ -14,13 +16,13 @@ create table Owners(
     password1 varchar(255) not null
 );
 
-select * from Owners;
+/*select * from Owners;*/
 
 create table Additional_Services(
 	id_services int(15) not null auto_increment primary key,
     type_service varchar(255) not null,
     id_owners int(15) not null,
-    foreign key(id_owners) references Owners(id_owners)
+    foreign key(id_owners) references Owners(id_owners) on delete cascade
 );
 
 create table Pets(
@@ -35,12 +37,13 @@ create table Pets(
     photo varchar(1000) not null,
     tattoo boolean not null,
     id_owners int(15) not null,
-    foreign key(id_owners) references Owners (id_owners)
+    foreign key(id_owners) references Owners (id_owners) on delete cascade
 );
 
-select * from Pets;
+/*select * from Pets;*/
+/*select * from Administrator;*/
 
-select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets = 1;
+/*select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets = 1;*/
 
 create table Doctors(
 	id_doctor int(15) not null auto_increment primary key,
@@ -50,7 +53,9 @@ create table Doctors(
     email varchar(255) not null,
     password1 varchar(255) not null
 );
-select * from Doctors;
+
+
+/*select * from Doctors;*/
 
 create table Consult(
 	id_consult int(15) not null auto_increment primary key,
@@ -61,8 +66,8 @@ create table Consult(
     prescription varchar(255) not null,
     id_doctor int(15) not null,
     id_pets int(15) not null,
-    foreign key(id_pets) references Pets(id_pets),
-    foreign key(id_doctor) references Doctors(id_doctor)
+    foreign key(id_pets) references Pets(id_pets) on delete cascade,
+    foreign key(id_doctor) references Doctors(id_doctor) on delete cascade
 );
 
 create table Procedures(
@@ -73,17 +78,17 @@ create table Procedures(
     inputs varchar(255) not null,
     recovery_time varchar(255) not null,
     id_pets int(15) not null,
-    foreign key(id_pets) references Pets(id_pets)
+    foreign key(id_pets) references Pets(id_pets) on delete cascade
 );
 
 create table Vaccine_History(
 	id_vaccine int(15) not null auto_increment primary key,
-    name1 varchar(255) not null,
+    name2 varchar(255) not null,
     lot int(15),
     application_date date not null,
     next_dose date not null,
     id_pets int(15) not null,
-    foreign key(id_pets) references Pets(id_pets)
+    foreign key(id_pets) references Pets(id_pets) on delete cascade
 );
 
 create table Health_history(
@@ -95,9 +100,9 @@ create table Health_history(
     id_pets int(15) not null,
     id_procedure int(15) not null,
     id_vaccine int(15) not null,
-    foreign key(id_pets) references Pets(id_pets),
-    foreign key(id_procedure) references Procedures(id_procedure),
-    foreign key(id_vaccine) references Vaccine_History(id_vaccine)
+    foreign key(id_pets) references Pets(id_pets) on delete cascade,
+    foreign key(id_procedure) references Procedures(id_procedure) on delete cascade,
+    foreign key(id_vaccine) references Vaccine_History(id_vaccine) on delete cascade
 );
 
 create table Appointments(
@@ -108,7 +113,7 @@ create table Appointments(
     process1 varchar(255) not null,
     reason varchar(255) not null,
     id_owners int(15) not null,
-    foreign key(id_owners) references Owners (id_owners)
+    foreign key(id_owners) references Owners (id_owners) on delete cascade
 );
 
 create table Medicines(
@@ -121,8 +126,7 @@ create table Medicines(
     price int(15) not null
 );
 
-select * from Medicines;
-select expiration_date from Medicines;
+/*select name1, type1, manufacturer, quantity, expiration_date, price from Medicines where id_medicine = 1;*/
 
 create table Products(
 	id_product int(15) not null auto_increment primary key,
@@ -138,8 +142,12 @@ create table Inventary(
     supplier varchar(255) not null,
     id_medicine int(15) not null,
     id_product int(15) not null,
-    foreign key(id_product) references Products(id_product)
+    foreign key(id_medicine) references Medicines(id_medicine) on delete cascade,
+    foreign key(id_product) references Products(id_product) on delete cascade
 );
+
+/*select i.*, m.* from Inventary i inner join Medicines m on i.id_medicine = m.id_medicine where i.id_medicine = 2;
+select i.*, p.* from Inventary i inner join Products p on i.id_product = p.id_product where i.id_product =1;*/
 
 create table Administrator(
 	id_administrator int(15) not null auto_increment primary key,
@@ -157,7 +165,7 @@ create table Details(
     tax int(15) not null,
     invoice_date date not null,
     id_consult int(15) not null,
-    foreign key(id_consult) references Consult(id_consult)
+    foreign key(id_consult) references Consult(id_consult) on delete cascade
 );
 
 create table Invoice(
@@ -168,9 +176,9 @@ create table Invoice(
     id_owners int(15) not null,
     id_administrator int(15) not null,
     id_details int(15) not null,
-    foreign key(id_owners) references Owners(id_owners),
-    foreign key(id_administrator) references Administrator(id_administrator),
-    foreign key(id_details) references Details(id_details)
+    foreign key(id_owners) references Owners(id_owners) on delete cascade,
+    foreign key(id_administrator) references Administrator(id_administrator) on delete cascade,
+    foreign key(id_details) references Details(id_details) on delete cascade
 );
 
 create table Adoption(
@@ -182,8 +190,8 @@ create table Adoption(
     adoption_date date not null,
     id_administrator int(15) not null,
     id_owners int(15) not null,
-    foreign key(id_administrator) references Administrator(id_administrator),
-    foreign key(id_owners) references Owners(id_owners)
+    foreign key(id_administrator) references Administrator(id_administrator) on delete cascade,
+    foreign key(id_owners) references Owners(id_owners) on delete cascade
 );
 
 create table Visits_History(
@@ -191,5 +199,21 @@ create table Visits_History(
     quantity int(15) not null,
     profit varchar(255) null,
     id_owners int(15) not null,
-    foreign key(id_owners) references Owners(id_owners)
+    foreign key(id_owners) references Owners(id_owners) on delete cascade
 );
+
+/*ver mascotas atendidas*/
+select p.id_pets, p.name1, p.species, p.age, pro.procedure_type, pro.description1, pro.inputs, v.quantity, vh.name2, vh.application_date, vh.next_dose from Pets p 
+inner join Procedures pro on p.id_pets = pro.id_pets 
+inner join Owners o on p.id_owners = o.id_owners 
+inner join Visits_History v on v.id_owners = o.id_owners
+inner join Vaccine_History vh on p.id_pets = vh.id_pets;
+
+/*servicios más solicitados*/
+select type_service, count(*) as service_count from Additional_Services group by type_service order by service_count desc limit 1;
+
+/*Desempeño de veterinario*/
+select c.id_doctor, d.name1, count(*) as cant_consults from Consult c inner join Doctors d on c.id_doctor = d.id_doctor where c.id_doctor = 1 group by id_doctor order by cant_consults desc;
+
+/*Inventario*/
+select c.id_consult, m.name1, m.expiration_date from Consult c inner join Medicines m on find_in_set(m.name1, replace(c.prescription, ' ', ''));
