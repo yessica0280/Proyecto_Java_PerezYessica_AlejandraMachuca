@@ -1,4 +1,8 @@
-# Happy Feet
+<h1 align=center>Happy Feet</h1>
+<br>
+<p align=center>
+   <img width="300" height="250" src="https://github.com/user-attachments/assets/737f412b-b911-4044-886c-5d08ddb8c9e2" />
+</p>
 
 ## Descripción
 
@@ -12,8 +16,14 @@ El sistema propuesto permitirá a la empresa almacenar información clave de la 
 Además se garantiza la integridad y consistencia de los datos.
 
 ## Tecnologías utilizadas
-* Java.
-* MySQLWorkbench.
+| Java | MySQLWorkbench |
+|--|--|
+| <img width="300" height="250" src="https://github.com/user-attachments/assets/edfc43ac-b5d3-42dd-87f6-adcc09a80f60"/> | <img width="300" height="250" src="https://github.com/user-attachments/assets/3b6ffbb2-f55f-4e87-b3df-3e53d4fdaa1f"/> |
+
+
+
+
+
 
 ## Estructura del proyecto
 Aquí podrás observar todo lo utilizado para desarrollar el proyecto.
@@ -161,4 +171,4 @@ Es la representación visual de los datos y la interfaz del usuario (UI) de una 
 3. Abrir y ejecutar el archivo[main] de cada apartado.
 
 ## Desarrollado por
-Alejandra Machuca Molina, Yessica Andrea Perez Machuca estudiantes de Campuslands como proyecto de filtro del modulo Java en conjunto con MySQL Workbench.
+Alejandra Machuca Molina y Yessica Andrea Perez Machuca estudiantes de Campuslands como proyecto de filtro del modulo Java en conjunto con MySQL Workbench.
