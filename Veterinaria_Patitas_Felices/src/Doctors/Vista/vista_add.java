@@ -175,7 +175,7 @@ public class vista_add extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel10.setText("Date_of_birth");
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Escritorio\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\50+_Dog_Drawing_Ideas_Every_Animal_Lover_Needs_to_Try__49-removebg-preview.png")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\50+_Dog_Drawing_Ideas_Every_Animal_Lover_Needs_to_Try__49-removebg-preview.png")); // NOI18N
         jLabel12.setText("jLabel12");
 
         javax.swing.GroupLayout panel2aLayout = new javax.swing.GroupLayout(panel2a);

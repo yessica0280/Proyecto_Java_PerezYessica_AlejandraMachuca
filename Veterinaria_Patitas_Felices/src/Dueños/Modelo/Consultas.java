@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Consultas extends Conexion{
     
+    /*login*/
     public boolean obtener(Owners own){
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -45,16 +46,18 @@ public class Consultas extends Conexion{
         }
     }
     
+    /*view owners*/
     public boolean mostrarInfo(Owners own){
 
         String sql = "select * from Owners where id_owners=?";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection cx = getConexion();
+        Connection cx = null;
 
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
-            ps.setString(1, own.getPassword1());
+            ps.setInt(1, own.getId());
             rs = ps.executeQuery();
             
             while (rs.next()){
@@ -84,6 +87,7 @@ public class Consultas extends Conexion{
         }
     }
     
+    /*update owners*/
     public boolean updateOwners(Owners own){
         PreparedStatement ps = null;
         Connection cx = getConexion();
@@ -118,14 +122,16 @@ public class Consultas extends Conexion{
         }
     }
     
+    /*view pets*/
     public boolean readPets(Pets pet){
 
         String sql = "select p.*, o.* from Pets p inner join Owners o on o.id_owners = p.id_owners where id_pets=?";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        Connection cx = getConexion();
+        Connection cx = null;
 
         try{
+            cx = getConexion();
             ps = cx.prepareStatement(sql);
             ps.setInt(1, pet.getId_pets());
             rs = ps.executeQuery();
@@ -161,42 +167,7 @@ public class Consultas extends Conexion{
         }
     }
     
-    public boolean readVisits(Visits_History vh){
-
-        String sql = "select vh.*, o.* from Visits_History vh inner join Owners o on o.id_owners = vh.id_owners where id_visit = ?";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection cx = getConexion();
-
-        try{
-            ps = cx.prepareStatement(sql);
-            ps.setInt(1, vh.getId_visit());
-            rs = ps.executeQuery();
-            
-            while (rs.next()){
-                vh.setId_visit(rs.getInt("id_visit"));
-                vh.setQuantity(rs.getInt("quantity"));
-                vh.setProfit(rs.getString("profit"));
-                vh.setId_owners(rs.getInt("id_owners"));
-                
-                return true;
-            }
-            return false;
-        }
-        catch(SQLException e){
-            System.err.println(e);
-            return false;
-        }
-        finally{
-            try{
-                cx.close();
-            }
-            catch(SQLException e){
-                System.err.println(e);
-            }
-        }
-    }
-    
+    /*update pets*/
     public boolean updatePets(Pets pet){
         PreparedStatement ps = null;
         Connection cx = getConexion();
@@ -233,41 +204,7 @@ public class Consultas extends Conexion{
         }
     }
     
-    public boolean readServices(Additional_Services aS){
-
-        String sql = "select adS.*, o.* from Additional_Services adS inner join Owners o on adS.id_owners = o.id_owners where id_services = ?";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection cx = getConexion();
-
-        try{
-            ps = cx.prepareStatement(sql);
-            ps.setInt(1, aS.getId_services());
-            rs = ps.executeQuery();
-            
-            while (rs.next()){
-                aS.setId_services(rs.getInt("id_services"));
-                aS.setType_service(rs.getString("type_service"));
-                aS.setId_owners(rs.getInt("id_owners"));
-                
-                return true;
-            }
-            return false;
-        }
-        catch(SQLException e){
-            System.err.println(e);
-            return false;
-        }
-        finally{
-            try{
-                cx.close();
-            }
-            catch(SQLException e){
-                System.err.println(e);
-            }
-        }
-    }
-    
+    /*add pets*/
     public boolean addPets(Pets pet){
         PreparedStatement ps = null;
         Connection cx = getConexion();
@@ -303,25 +240,35 @@ public class Consultas extends Conexion{
         }
     }
     
-    /*public void mostrarDatos(){
-        String query="select * from Additional_Services;";
-        try {
-           Conexion con= new Conexion(); // Se establece la conexion con bd
-           Connection cont = con.getConexion();
-           Consultas base = new Consultas();
-           PreparedStatement ps=cont.prepareStatement(query);// Se prepara el comando a realizar
-           ResultSet rs=ps.executeQuery();
-           while (rs.next()){// el bucle se va a ejecutar mientras que rs tenga registros
-               int id_services=rs.getInt("id_services");
-               String type_service=rs.getString("type_service");
-               int id_owners=rs.getInt("id_owners");
-               System.out.println("id: "+ id_services + "\nNombre: "+ type_service + "\nId_owners: " + id_owners);
+    /*add apointments*/
+    public boolean addAppointments(Appointments app){
+        PreparedStatement ps = null;
+        Connection cx = getConexion();
+        
+        String sql = "insert into Appointments(date1, hour1, state, process1, reason, id_owners) values (?,?,?,?,?,?)";
+        
+        try{
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, app.getDate1());
+            ps.setString(2, app.getHour1());
+            ps.setString(3, app.getState());
+            ps.setString(4, app.getProcess1());
+            ps.setString(5, app.getReason());
+            ps.setInt(6, app.getId_owners());
+            ps.execute();            
+            return true;
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+        finally{
+            try{
+                cx.close();
+            }
+            catch(SQLException e){
+                System.err.println(e);
             }
         }
-        catch (SQLException ex){
-          System.out.println("Error al leer los datos");
-          ex.printStackTrace();
-        }    
-    }*/
-    
+    }
 }

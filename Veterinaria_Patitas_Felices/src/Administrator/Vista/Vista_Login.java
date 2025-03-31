@@ -56,7 +56,6 @@ public class Vista_Login extends javax.swing.JFrame {
 
         inicio.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         inicio.setText("Login");
-        inicio.setActionCommand("Login");
         inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inicioActionPerformed(evt);
@@ -127,11 +126,12 @@ public class Vista_Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         // TODO add your handling code here:
-        
+        System.out.println("si funciono");
     }//GEN-LAST:event_inicioActionPerformed
 
     /**

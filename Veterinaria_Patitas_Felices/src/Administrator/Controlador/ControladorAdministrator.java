@@ -9,9 +9,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ControladorAdministrator implements ActionListener{
-    private final Administrator modelo;
-    private final Consultas consultas;
-    private final Vista_Login vistaL;
+    Administrator modelo;
+    Consultas consultas;
+    Vista_Login vistaL;
     
     public ControladorAdministrator(Administrator modelo, Consultas consultas, Vista_Login vistaL) {
         this.modelo = modelo;
