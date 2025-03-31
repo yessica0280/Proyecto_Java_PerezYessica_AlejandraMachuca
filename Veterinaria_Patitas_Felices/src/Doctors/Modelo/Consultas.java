@@ -3,6 +3,7 @@ package Doctors.Modelo;
 import Doctors.Vista.vista_login;
 import Doctors.Vista.vista_menu;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class Consultas extends Conexion{
     public boolean ver(Doctors doc) {
@@ -195,12 +196,14 @@ public class Consultas extends Conexion{
             rs = ps.executeQuery();
             
             if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Successful login.");
                 vista_menu abrir = new vista_menu();
                 abrir.setVisible(true);
                 vista_login vieww=new vista_login();
                 vieww.setVisible(false);
                 return true;
             } else {
+                JOptionPane.showMessageDialog(null, "Incorrect login.");
                 return false;
             }
         }

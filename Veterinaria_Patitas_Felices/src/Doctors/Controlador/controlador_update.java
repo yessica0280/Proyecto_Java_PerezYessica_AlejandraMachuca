@@ -39,7 +39,7 @@ public class controlador_update implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Doctor successfully updated");
             }
             else {
-                JOptionPane.showMessageDialog(null, "Error during quatualization.");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
     }

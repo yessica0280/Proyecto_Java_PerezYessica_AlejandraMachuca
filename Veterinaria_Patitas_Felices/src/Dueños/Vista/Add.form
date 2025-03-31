@@ -105,7 +105,7 @@
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Usuario\Desktop\Proyecto_Java_PerezYessica_AlejandraMachuca\Veterinaria_Patitas_Felices\src\Due&#xf1;os\Vista\imagen\Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png"/>
+                  <Image iconType="3" name="/Due&#xf1;os/Vista/imagen/Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="jLabel23"/>
               </Properties>

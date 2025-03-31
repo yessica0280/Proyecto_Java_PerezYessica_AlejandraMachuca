@@ -22,14 +22,15 @@ public class Consultas extends Conexion{
             ps = cx.prepareStatement(sql);
             ps.setString(1, pass);
             rs = ps.executeQuery();
-            System.out.println("aaaaaaaaaaaaaaaaaaa");
             if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Successful login.");
                 Vista_menu abrir = new Vista_menu();
                 abrir.setVisible(true);
                 Vista_Login vieww=new Vista_Login();
                 vieww.setVisible(false);
                 return true;
             } else {
+                JOptionPane.showMessageDialog(null, "Incorrect login.");
                 return false;
             }
         }
@@ -410,87 +411,6 @@ public class Consultas extends Conexion{
             }
         }
     }
-    
-    /*View inventary medicines*/
-    /*public boolean viewInventary(Inventary inv) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection cx = null;
-        
-        String sql = "select i.*, m.* from Inventary i inner join Medicines m on i.id_medicine = m.id_medicine where i.id_medicine = ?";
-        
-        try {
-            cx = getConexion();
-            ps = cx.prepareStatement(sql);
-            ps.setInt(1, inv.getId_inventary());
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                inv.setSupplier(rs.getString("supplier"));
-                inv.setId_medicine(rs.getInt("id_medicine"));
-                inv.setName1(rs.getString("name1"));
-                inv.setType1(rs.getString("type1"));
-                inv.setManufacturer(rs.getString("manufacturer"));
-                inv.setQuantity(rs.getInt("quantity"));
-                inv.setExpiration_date(rs.getString("expiration_date"));
-                inv.setPrice(rs.getInt("price"));
-                return true;
-            }
-            return false;
-        }
-        catch (SQLException e) {
-            System.err.println(e);
-            return false;
-        }
-        finally {
-            try {
-                cx.close();
-            }
-            catch (SQLException e) {
-                System.err.println(e);
-            }
-        }
-    }*/
-    
-    /*View inventary products*/
-    /*public boolean viewInventaryProducts(InventaryProducts invP) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Connection cx = null;
-        
-        String sql = "select i.*, p.* from Inventary i inner join Products p on i.id_product = p.id_product where i.id_product = ?";
-        
-        try {
-            cx = getConexion();
-            ps = cx.prepareStatement(sql);
-            ps.setInt(1, invP.getId_inventary());
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                invP.setSupplier(rs.getString("supplier"));
-                invP.setId_producto(rs.getInt("id_product"));
-                invP.setType1(rs.getString("type1"));
-                invP.setManufacturer(rs.getString("manufacturer"));
-                invP.setQuantity(rs.getInt("quantity"));
-                invP.setExpiration_date(rs.getString("expiration_date"));
-                invP.setPrice(rs.getInt("price"));
-                return true;
-            }
-            return false;
-        }
-        catch (SQLException e) {
-            System.err.println(e);
-            return false;
-        }
-        finally {
-            try {
-                cx.close();
-            }
-            catch (SQLException e) {
-                System.err.println(e);
-            }
-        }
-    }*/
     
     /*Add Doctors*/
     public boolean Add_Doctors(Doctors doct) {

@@ -54,7 +54,7 @@ public class Vista_Delete extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 242));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Images\\Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

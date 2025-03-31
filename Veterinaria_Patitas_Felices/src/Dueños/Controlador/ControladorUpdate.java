@@ -42,10 +42,10 @@ public class ControladorUpdate implements ActionListener{
             modelo.setPassword1(update.password.getText());
             
             if(consultas.updateOwners(modelo)){
-                JOptionPane.showMessageDialog(null, "Dueño actualizado.");
+                JOptionPane.showMessageDialog(null, "Owner successfully updated");
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error al actualizar");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
         

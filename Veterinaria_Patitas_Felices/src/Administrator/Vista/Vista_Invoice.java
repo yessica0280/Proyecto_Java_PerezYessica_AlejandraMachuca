@@ -104,7 +104,7 @@ public class Vista_Invoice extends javax.swing.JFrame implements Printable {
         jLabel8.setText("Telefono");
         panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 73, -1, -1));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\NetBeansProjects\\Invoice\\src\\invoice\\Vista\\imagen\\patitas feclices (1).png")); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Images\\patitas feclices (1).png")); // NOI18N
         jLabel19.setText("jLabel19");
         panel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 197, 180));
 
@@ -172,7 +172,7 @@ public class Vista_Invoice extends javax.swing.JFrame implements Printable {
         });
         panel1.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\OneDrive\\Documentos\\NetBeansProjects\\Invoice\\src\\invoice\\Vista\\imagen\\Logo_vet__-removebg-preview (1).png")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Images\\Logo_vet__-removebg-preview (1).png")); // NOI18N
         jLabel9.setText("jLabel9");
         panel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 341, 452, 324));
 

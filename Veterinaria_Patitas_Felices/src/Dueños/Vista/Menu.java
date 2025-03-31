@@ -96,7 +96,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Dueños\\Vista\\imagen\\Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dueños/Vista/imagen/Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

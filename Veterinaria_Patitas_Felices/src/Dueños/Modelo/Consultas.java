@@ -7,6 +7,7 @@ import Dueños.Vista.Menu;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Consultas extends Conexion{
     
@@ -24,13 +25,19 @@ public class Consultas extends Conexion{
             rs = ps.executeQuery();
             
             if (rs.next()){
+                JOptionPane.showMessageDialog(null, "Successful login.");
                 Menu abrir = new Menu();
                 abrir.setVisible(true);
                 FrameU vieww=new FrameU();
                 vieww.setVisible(false);
+                
                 return true;
             }
-            return false;
+            else{
+                JOptionPane.showMessageDialog(null, "Incorrect login.");
+                return false;
+            }
+            
         }
         catch(SQLException e){
             System.err.println(e);

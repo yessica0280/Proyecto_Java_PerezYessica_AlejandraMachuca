@@ -50,7 +50,7 @@ public class ControladorUpdate implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Doctor successfully updated.");
             }
             else {
-                JOptionPane.showMessageDialog(null, "Error when updating.");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
         
@@ -73,7 +73,7 @@ public class ControladorUpdate implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Pet successfully updated.");
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error when updating.");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
         
@@ -95,7 +95,7 @@ public class ControladorUpdate implements ActionListener{
  
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error when updating.");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
         
@@ -114,7 +114,7 @@ public class ControladorUpdate implements ActionListener{
  
             }
             else{
-                JOptionPane.showMessageDialog(null, "Error when updating.");
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
     }

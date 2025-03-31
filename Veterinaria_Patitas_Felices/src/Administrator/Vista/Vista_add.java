@@ -117,7 +117,7 @@ public class Vista_add extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\EJEMPLO\\proyecto\\Veterinaria_Patitas_Felices\\src\\Images\\Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png")); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png"))); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jButton1.setText("Back");

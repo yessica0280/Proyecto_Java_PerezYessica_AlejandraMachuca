@@ -151,7 +151,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Usuario\Desktop\TRABAJOS ALEJA\Proyecto_Java_PerezYessica_AlejandraMachuca\Veterinaria_Patitas_Felices\src\Images\Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png"/>
+                  <Image iconType="3" name="/Images/Download_Cute_animal_greeting_card_doodle_banner_background_wallpaper_icon_cartoon_illustration_for_free-removebg-preview (1).png"/>
                 </Property>
               </Properties>
             </Component>

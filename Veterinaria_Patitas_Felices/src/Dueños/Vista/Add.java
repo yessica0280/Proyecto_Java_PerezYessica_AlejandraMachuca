@@ -74,7 +74,7 @@ public class Add extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Dueños\\Vista\\imagen\\Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png")); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dueños/Vista/imagen/Premium_Vector___The_collection_of_cute_cat_in_big_tea_cup_set_-removebg-preview.png"))); // NOI18N
         jLabel23.setText("jLabel23");
 
         back.setFont(new java.awt.Font("Segoe Print", 0, 16)); // NOI18N
