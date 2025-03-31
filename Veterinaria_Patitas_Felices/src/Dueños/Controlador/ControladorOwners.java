@@ -37,7 +37,7 @@ public class ControladorOwners implements ActionListener{
         
         /*Login*/
         
-        if(e.getSource() == vista.login){
+        /*if(e.getSource() == vista.login){
            modelo.setPassword1(vista.password.getText());
 
            if(consultas.obtener(modelo)){
@@ -50,6 +50,6 @@ public class ControladorOwners implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Incorrect login.");
                 vista.password.setText("");
             } 
-        } 
+        } */
     }
 }

@@ -17,7 +17,7 @@ public class ControladorAdministrator implements ActionListener{
         this.modelo = modelo;
         this.consultas = consultas;
         this.vistaL = vistaL;
-        
+        System.out.println("hhhhhhhhhhh");
         this.vistaL.inicio.addActionListener(this);
     }
     
@@ -29,20 +29,21 @@ public class ControladorAdministrator implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        /*login*/
+        /*login
         if (e.getSource() == vistaL.inicio) {
             modelo.setPassword(vistaL.password.getText());
-            
+            System.out.println(modelo);
             if(consultas.password(modelo)){
                 JOptionPane.showMessageDialog(null, "Successful login.");
                 Vista_menu abrir = new Vista_menu();
                 abrir.setVisible(true);
                 this.vistaL.setVisible(false);
+                System.out.println("dfffffff");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Incorrect login.");
                 vistaL.password.setText("");
             }
-        }
+        }*/
     }
 }

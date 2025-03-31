@@ -4,6 +4,8 @@
  */
 package Dueños.Vista;
 
+import Dueños.Modelo.Consultas;
+
 /**
  *
  * @author Usuario
@@ -125,6 +127,9 @@ public class FrameU extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+        Consultas consu= new Consultas();
+        String pass=password.getText();
+        consu.obtener(pass);
     }//GEN-LAST:event_loginActionPerformed
 
     /**

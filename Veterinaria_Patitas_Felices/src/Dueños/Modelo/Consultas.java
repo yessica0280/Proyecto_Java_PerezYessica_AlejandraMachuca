@@ -1,5 +1,9 @@
 package Dueños.Modelo;
 
+import Administrator.Vista.Vista_Login;
+import Administrator.Vista.Vista_menu;
+import Dueños.Vista.FrameU;
+import Dueños.Vista.Menu;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +11,7 @@ import java.util.List;
 public class Consultas extends Conexion{
     
     /*login*/
-    public boolean obtener(Owners own){
+    public boolean obtener(String pass){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection cx = getConexion();
@@ -16,18 +20,14 @@ public class Consultas extends Conexion{
         
         try{
             ps = cx.prepareStatement(sql);
-            ps.setString(1, own.getPassword1());
+            ps.setString(1, pass);
             rs = ps.executeQuery();
             
             if (rs.next()){
-                own.setId(rs.getInt("id_owners"));
-                own.setName1(rs.getString("name1"));
-                own.setIdentification(rs.getInt("identification"));
-                own.setAddress(rs.getString("address"));
-                own.setPhone(rs.getInt("phone"));
-                own.setEmail(rs.getString("email"));
-                own.setEmergency_contact(rs.getInt("emergency_contact"));
-                own.setPoints(rs.getString("points"));
+                Menu abrir = new Menu();
+                abrir.setVisible(true);
+                FrameU vieww=new FrameU();
+                vieww.setVisible(false);
                 return true;
             }
             return false;

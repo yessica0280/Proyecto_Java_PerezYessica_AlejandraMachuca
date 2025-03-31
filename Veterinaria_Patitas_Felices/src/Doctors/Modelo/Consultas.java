@@ -1,8 +1,8 @@
 package Doctors.Modelo;
 
+import Doctors.Vista.vista_login;
+import Doctors.Vista.vista_menu;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Consultas extends Conexion{
     public boolean ver(Doctors doc) {
@@ -181,7 +181,7 @@ public class Consultas extends Conexion{
         }
     }
     
-    public boolean password(Doctors doc){
+    public boolean password(String pass){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection cx = null;
@@ -191,10 +191,14 @@ public class Consultas extends Conexion{
         try{
             cx = getConexion();
             ps = cx.prepareStatement(sql);
-            ps.setString(1, doc.getPassword());
+            ps.setString(1, pass);
             rs = ps.executeQuery();
             
             if (rs.next()) {
+                vista_menu abrir = new vista_menu();
+                abrir.setVisible(true);
+                vista_login vieww=new vista_login();
+                vieww.setVisible(false);
                 return true;
             } else {
                 return false;

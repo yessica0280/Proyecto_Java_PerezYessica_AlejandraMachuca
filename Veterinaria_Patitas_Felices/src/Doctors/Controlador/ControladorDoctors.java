@@ -50,7 +50,7 @@ public class ControladorDoctors implements ActionListener{
     /*login*/
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vistal.inicio) {
+       /*if (e.getSource() == vistal.inicio) {
             modelo.setPassword(vistal.password.getText());
             
             if(consultas.password(modelo)){
@@ -64,10 +64,11 @@ public class ControladorDoctors implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Login incorrect.");
                 vistal.password.setText("");
             }
-        }
+        }*/
+        /*public void clean() {
+            vista.id.setText(null);
+            vista.inicio.setText(null);
+        }*/
     }
-    public void clean() {
-        vista.id.setText(null);
-        vista.inicio.setText(null);
-    }
+    
 }

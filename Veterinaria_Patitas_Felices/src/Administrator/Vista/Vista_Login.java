@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Administrator.Vista;
-
+import Administrator.Modelo.Administrator;
+import Administrator.Modelo.Consultas;
+import Administrator.Controlador.ControladorAdministrator;
 
 
 
@@ -131,7 +133,10 @@ public class Vista_Login extends javax.swing.JFrame {
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         // TODO add your handling code here:
-        System.out.println("si funciono");
+        Consultas consu= new Consultas();
+        String pass=password.getText();
+        consu.password(pass);
+        
     }//GEN-LAST:event_inicioActionPerformed
 
     /**
@@ -178,4 +183,8 @@ public class Vista_Login extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel4;
     public javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
+
+    private void ControladorAdministrator() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

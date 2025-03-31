@@ -1,15 +1,16 @@
 package Administrator.Modelo;
 
+import Administrator.Vista.Vista_menu;
 import java.sql.*; 
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-
+import Administrator.Vista.Vista_Login;
 public class Consultas extends Conexion{
     
     /*login*/
-    public boolean password(Administrator adm){
+    public boolean password(String pass){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection cx = null;
@@ -19,10 +20,14 @@ public class Consultas extends Conexion{
         try{
             cx = getConexion();
             ps = cx.prepareStatement(sql);
-            ps.setString(1, adm.getPassword());
+            ps.setString(1, pass);
             rs = ps.executeQuery();
-            
+            System.out.println("aaaaaaaaaaaaaaaaaaa");
             if (rs.next()) {
+                Vista_menu abrir = new Vista_menu();
+                abrir.setVisible(true);
+                Vista_Login vieww=new Vista_Login();
+                vieww.setVisible(false);
                 return true;
             } else {
                 return false;

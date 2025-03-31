@@ -4,6 +4,8 @@
  */
 package Doctors.Vista;
 
+import Doctors.Modelo.Consultas;
+
 /**
  *
  * @author Usuario
@@ -122,6 +124,9 @@ public class vista_login extends javax.swing.JFrame {
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         // TODO add your handling code here:
+        Consultas consu= new Consultas();
+        String pass=password.getText();
+        consu.password(pass);
         
     }//GEN-LAST:event_inicioActionPerformed
 
