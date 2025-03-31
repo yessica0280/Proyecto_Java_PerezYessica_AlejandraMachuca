@@ -156,6 +156,8 @@ public class Vista_Login extends javax.swing.JFrame {
         String pass=password.getText();
         consu.password(pass);
         
+        this.setVisible(false);
+        
     }//GEN-LAST:event_inicioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

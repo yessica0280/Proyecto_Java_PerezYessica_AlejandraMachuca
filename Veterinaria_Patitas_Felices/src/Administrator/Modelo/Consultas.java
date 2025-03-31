@@ -764,4 +764,62 @@ public class Consultas extends Conexion{
             }
         }
     }
+    
+    /*update stock of medicines*/
+    public boolean updateStockMedicines(StockMedicines sM) {
+        PreparedStatement ps = null;
+        Connection cx = null;
+        
+        String sql = "update Medicines set quantity=? where id_medicine=?";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, sM.getCant_stock());
+            ps.setInt(2, sM.getId_medicine());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    /*update stock of products*/
+    public boolean updateStockProducts(StockProducts sP) {
+        PreparedStatement ps = null;
+        Connection cx = null;
+        
+        String sql = "update Products set quantity=? where id_product=?";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setInt(1, sP.getCant_stock());
+            ps.setInt(2, sP.getId_product());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
 }

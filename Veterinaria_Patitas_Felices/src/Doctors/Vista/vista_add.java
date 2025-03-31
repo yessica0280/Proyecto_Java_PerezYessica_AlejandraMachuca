@@ -92,7 +92,6 @@ public class vista_add extends javax.swing.JFrame {
         age.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         age.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        date_of.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         date_of.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         date_of.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +99,6 @@ public class vista_add extends javax.swing.JFrame {
             }
         });
 
-        sex.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         sex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         sex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +106,6 @@ public class vista_add extends javax.swing.JFrame {
             }
         });
 
-        micro.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         micro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         micro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,13 +113,10 @@ public class vista_add extends javax.swing.JFrame {
             }
         });
 
-        photo.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        tatto.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         tatto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        id_owners.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         id_owners.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
         add.setBackground(new java.awt.Color(153, 153, 255));

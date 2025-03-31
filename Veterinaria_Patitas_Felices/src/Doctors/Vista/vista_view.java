@@ -93,7 +93,6 @@ public class vista_view extends javax.swing.JFrame {
             }
         });
 
-        id2.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
         in.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N

@@ -1,7 +1,10 @@
 package Administrator.Controlador;
 
 import Administrator.Vista.Vista_update;
+import Administrator.Vista.Vista_resupply;
 import Administrator.Modelo.Administrator;
+import Administrator.Modelo.StockMedicines;
+import Administrator.Modelo.StockProducts;
 import Administrator.Modelo.Doctors;
 import Administrator.Modelo.Medicines;
 import Administrator.Modelo.Consultas;
@@ -13,14 +16,17 @@ import javax.swing.JOptionPane;
 
 public class ControladorUpdate implements ActionListener{
     Vista_update vistaUp;
+    Vista_resupply vr;
     Administrator admin;
+    StockMedicines sm;
+    StockProducts sP;
     Doctors doctors;
     Medicines medis;
     Consultas consultas;
     Pets pets;
     Owners owners;
     
-    public ControladorUpdate (Vista_update vistaUp, Administrator admin, Doctors doctors, Consultas consultas, Medicines medis, Pets pets, Owners owners){
+    public ControladorUpdate (Vista_update vistaUp, Administrator admin, Doctors doctors, Consultas consultas, Medicines medis, Pets pets, Owners owners, Vista_resupply vr, StockMedicines sm, StockProducts sP){
         this.vistaUp = vistaUp;
         this.admin = admin;
         this.doctors = doctors;
@@ -28,11 +34,16 @@ public class ControladorUpdate implements ActionListener{
         this.pets = pets;
         this.owners = owners;
         this.consultas = consultas;
+        this.vr = vr;
+        this.sm = sm;
+        this.sP = sP;
         
         this.vistaUp.upda1.addActionListener(this);
         this.vistaUp.upda2.addActionListener(this);
         this.vistaUp.upda3.addActionListener(this);
         this.vistaUp.upda4.addActionListener(this);
+        this.vr.updateM.addActionListener(this);
+        this.vr.updateP.addActionListener(this);
     }
 
     @Override
@@ -112,6 +123,34 @@ public class ControladorUpdate implements ActionListener{
             if(consultas.updateOwners(owners)){
                 JOptionPane.showMessageDialog(null, "Administrator successfully updated.");
  
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error during update.");
+            }
+        }
+        
+        /*update stock of medicines*/
+        if(e.getSource() == vr.updateM){
+            
+            sm.setId_medicine(Integer.parseInt(vr.ide_medicines.getText()));
+            sm.setCant_stock(Integer.parseInt(vr.stockM.getText()));
+            
+            if(consultas.updateStockMedicines(sm)){
+                JOptionPane.showMessageDialog(null, "Stock medicine successfully updated.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error during update.");
+            }
+        }
+        
+        /*update stock of products*/
+        if(e.getSource() == vr.updateP){
+            
+            sP.setId_product(Integer.parseInt(vr.ideP.getText()));
+            sP.setCant_stock(Integer.parseInt(vr.stockP.getText()));
+            
+            if(consultas.updateStockProducts(sP)){
+                JOptionPane.showMessageDialog(null, "Stock product successfully updated.");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Error during update.");

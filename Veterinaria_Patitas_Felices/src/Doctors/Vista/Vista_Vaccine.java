@@ -76,17 +76,11 @@ public class Vista_Vaccine extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctors1/imagen/descarga__1_-removebg-preview (1).png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
-        application.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel6.setText("Next_dose");
 
-        next.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel7.setText("Id_pets");
-
-        idp.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
         addv.setBackground(new java.awt.Color(153, 153, 255));
         addv.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
@@ -98,8 +92,6 @@ public class Vista_Vaccine extends javax.swing.JFrame {
             }
         });
 
-        name.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         back.setBackground(new java.awt.Color(153, 153, 255));
         back.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         back.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,7 +102,6 @@ public class Vista_Vaccine extends javax.swing.JFrame {
             }
         });
 
-        lot.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         lot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lotActionPerformed(evt);

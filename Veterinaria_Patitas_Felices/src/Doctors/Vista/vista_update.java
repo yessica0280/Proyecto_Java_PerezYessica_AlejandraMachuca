@@ -72,13 +72,10 @@ public class vista_update extends javax.swing.JFrame {
 
         panel2u.setBackground(new java.awt.Color(255, 255, 255));
 
-        id2.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         id2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        name.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        espe.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         espe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         espe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +83,6 @@ public class vista_update extends javax.swing.JFrame {
             }
         });
 
-        phone.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         phone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
         phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,10 +90,8 @@ public class vista_update extends javax.swing.JFrame {
             }
         });
 
-        email.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
-        password.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
         update.setBackground(new java.awt.Color(153, 153, 255));

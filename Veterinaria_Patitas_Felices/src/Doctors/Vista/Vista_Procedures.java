@@ -78,12 +78,8 @@ public class Vista_Procedures extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel7.setText("Inputs");
 
-        inputs.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel8.setText("Recovery Time");
-
-        reco.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\descarga-removebg-preview.png")); // NOI18N
         jLabel2.setText("jLabel2");
@@ -94,14 +90,11 @@ public class Vista_Procedures extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel4.setText("Procedure_type");
 
-        idpe.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         idpe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idpeActionPerformed(evt);
             }
         });
-
-        procedure.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
         addproce.setBackground(new java.awt.Color(153, 153, 255));
         addproce.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
@@ -121,12 +114,8 @@ public class Vista_Procedures extends javax.swing.JFrame {
             }
         });
 
-        date.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel6.setText("Description");
-
-        description.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
