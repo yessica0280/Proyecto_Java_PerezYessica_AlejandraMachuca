@@ -59,8 +59,6 @@ public class Vista_menu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\EJEMPLO\\proyecto\\Veterinaria_Patitas_Felices\\src\\Images\\menu.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -122,6 +120,11 @@ public class Vista_menu extends javax.swing.JFrame {
         generate.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
         generate.setForeground(new java.awt.Color(255, 255, 255));
         generate.setText("Generate invoice");
+        generate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateActionPerformed(evt);
+            }
+        });
 
         reports.setBackground(new java.awt.Color(153, 153, 255));
         reports.setFont(new java.awt.Font("Segoe Print", 1, 20)); // NOI18N
@@ -267,6 +270,11 @@ public class Vista_menu extends javax.swing.JFrame {
         vistareport.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_reportsActionPerformed
+
+    private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
+        // TODO add your handling code here:
+        new Vista_Invoice().setVisible(true);
+    }//GEN-LAST:event_generateActionPerformed
 
     /**
      * @param args the command line arguments
