@@ -34,10 +34,7 @@ public class vista_add extends javax.swing.JFrame {
         race = new javax.swing.JTextField();
         age = new javax.swing.JTextField();
         date_of = new javax.swing.JTextField();
-        sex = new javax.swing.JTextField();
-        micro = new javax.swing.JTextField();
         photo = new javax.swing.JTextField();
-        tatto = new javax.swing.JTextField();
         id_owners = new javax.swing.JTextField();
         add = new javax.swing.JButton();
         volver = new javax.swing.JButton();
@@ -52,6 +49,9 @@ public class vista_add extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        sex = new javax.swing.JComboBox<>();
+        micro = new javax.swing.JComboBox<>();
+        tatto = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,23 +99,7 @@ public class vista_add extends javax.swing.JFrame {
             }
         });
 
-        sex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
-        sex.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sexActionPerformed(evt);
-            }
-        });
-
-        micro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
-        micro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                microActionPerformed(evt);
-            }
-        });
-
         photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
-
-        tatto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
         id_owners.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 255), 2));
 
@@ -172,6 +156,12 @@ public class vista_add extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\TRABAJOS ALEJA\\Proyecto_Java_PerezYessica_AlejandraMachuca\\Veterinaria_Patitas_Felices\\src\\Doctors1\\imagen\\50+_Dog_Drawing_Ideas_Every_Animal_Lover_Needs_to_Try__49-removebg-preview.png")); // NOI18N
         jLabel12.setText("jLabel12");
 
+        sex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Female", "Male" }));
+
+        micro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "True", "False" }));
+
+        tatto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "True", "False" }));
+
         javax.swing.GroupLayout panel2aLayout = new javax.swing.GroupLayout(panel2a);
         panel2a.setLayout(panel2aLayout);
         panel2aLayout.setHorizontalGroup(
@@ -204,24 +194,26 @@ public class vista_add extends javax.swing.JFrame {
                             .addComponent(date_of, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)))
                     .addGroup(panel2aLayout.createSequentialGroup()
+                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(race, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sex, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sex, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel2aLayout.createSequentialGroup()
-                                .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(race, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2aLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
                                 .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28))
+                            .addGroup(panel2aLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panel2aLayout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(micro, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2aLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(28, 28, 28)
+                                        .addComponent(jLabel2)
+                                        .addGap(49, 49, 49))
+                                    .addGroup(panel2aLayout.createSequentialGroup()
+                                        .addComponent(micro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(28, 28, 28)))))
                         .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -232,9 +224,10 @@ public class vista_add extends javax.swing.JFrame {
                             .addGroup(panel2aLayout.createSequentialGroup()
                                 .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(volver)
-                                    .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4)))
+                                    .addGroup(panel2aLayout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(45, 45, 45))
+                                    .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(38, 38, 38)
                                 .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -266,17 +259,18 @@ public class vista_add extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(sex, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(micro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sex, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(micro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28)
                         .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(id_owners, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(id_owners, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(add)
@@ -284,9 +278,7 @@ public class vista_add extends javax.swing.JFrame {
                         .addGap(51, 51, 51))
                     .addGroup(panel2aLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(panel2aLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tatto, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(12, Short.MAX_VALUE))))
         );
 
@@ -325,14 +317,6 @@ public class vista_add extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addActionPerformed
-
-    private void sexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sexActionPerformed
-
-    private void microActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_microActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_microActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,16 +369,16 @@ public class vista_add extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
-    public javax.swing.JTextField micro;
+    public javax.swing.JComboBox<String> micro;
     public javax.swing.JTextField names;
     public javax.swing.JPanel panel1a;
     public javax.swing.JPanel panel2a;
     public javax.swing.JLabel pe;
     public javax.swing.JTextField photo;
     public javax.swing.JTextField race;
-    public javax.swing.JTextField sex;
+    public javax.swing.JComboBox<String> sex;
     public javax.swing.JTextField species;
-    public javax.swing.JTextField tatto;
+    public javax.swing.JComboBox<String> tatto;
     public javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

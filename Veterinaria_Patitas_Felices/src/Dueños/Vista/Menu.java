@@ -141,8 +141,9 @@ public class Menu extends javax.swing.JFrame {
         Consultas consultas = new Consultas();
         Update update = new Update();
         Pets pet = new Pets();
+        updateAppointment apos = new updateAppointment();
         
-        ControladorUpdate c = new ControladorUpdate(modelo, consultas, update, pet);
+        ControladorUpdate c = new ControladorUpdate(modelo, consultas, update, pet,apos);
         
         update.setVisible(true);
         this.setVisible(false);

@@ -57,7 +57,6 @@ public class Add extends javax.swing.JFrame {
         dates = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         hour = new javax.swing.JTextField();
-        state = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         process = new javax.swing.JTextField();
@@ -66,6 +65,7 @@ public class Add extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         idow = new javax.swing.JTextField();
         addpo = new javax.swing.JButton();
+        state = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -290,8 +290,6 @@ public class Add extends javax.swing.JFrame {
 
         hour.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
 
-        state.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
-
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         jLabel7.setText("State");
 
@@ -319,6 +317,8 @@ public class Add extends javax.swing.JFrame {
                 addpoActionPerformed(evt);
             }
         });
+
+        state.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Confirmed" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -370,23 +370,23 @@ public class Add extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(process, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(27, 27, 27))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(3, 3, 3)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(hour, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(hour, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addGap(3, 3, 3)
                         .addComponent(dates, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addpo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -507,7 +507,7 @@ public class Add extends javax.swing.JFrame {
     public javax.swing.JTextField reason;
     public javax.swing.JTextField sex;
     public javax.swing.JTextField species;
-    public javax.swing.JTextField state;
+    public javax.swing.JComboBox<String> state;
     public javax.swing.JTextField tattoo;
     // End of variables declaration//GEN-END:variables
 }

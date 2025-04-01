@@ -36,10 +36,10 @@ public class controlador_add implements ActionListener{
             pets.setRace(vistad.race.getText());
             pets.setAge(Integer.parseInt(vistad.age.getText()));
             pets.setDate_of_birth(vistad.date_of.getText());
-            pets.setSex(vistad.sex.getText());
-            pets.setMicrochip(Boolean.parseBoolean(vistad.micro.getText()));
+            pets.setSex((String)vistad.sex.getSelectedItem());
+            pets.setMicrochip(Boolean.parseBoolean((String)vistad.micro.getSelectedItem()));
             pets.setPhoto(vistad.photo.getText());
-            pets.setTattoo(Boolean.parseBoolean(vistad.tatto.getText()));
+            pets.setTattoo(Boolean.parseBoolean((String)vistad.tatto.getSelectedItem()));
             pets.setId_owners(Integer.parseInt(vistad.id_owners.getText()));
             
             if (consultas.Add(pets)) {

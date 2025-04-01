@@ -26,6 +26,7 @@ public class ControladorUpdate implements ActionListener{
     Pets pets;
     Owners owners;
     
+    
     public ControladorUpdate (Vista_update vistaUp, Administrator admin, Doctors doctors, Consultas consultas, Medicines medis, Pets pets, Owners owners, Vista_resupply vr, StockMedicines sm, StockProducts sP){
         this.vistaUp = vistaUp;
         this.admin = admin;
@@ -37,6 +38,7 @@ public class ControladorUpdate implements ActionListener{
         this.vr = vr;
         this.sm = sm;
         this.sP = sP;
+        
         
         this.vistaUp.upda1.addActionListener(this);
         this.vistaUp.upda2.addActionListener(this);
@@ -74,10 +76,10 @@ public class ControladorUpdate implements ActionListener{
             pets.setRace(vistaUp.raceUpP.getText());
             pets.setAge(Integer.parseInt(vistaUp.ageUpP.getText()));
             pets.setDate_of_birth(vistaUp.dateOfP.getText());
-            pets.setSex(vistaUp.sexUpP.getText());
-            pets.setMicrochip(Boolean.parseBoolean(vistaUp.microUpP.getText()));
+            pets.setSex((String)vistaUp.sexUpP.getSelectedItem());
+            pets.setMicrochip(Boolean.parseBoolean((String)vistaUp.microUpP.getSelectedItem()));
             pets.setPhoto(vistaUp.photoUpP.getText());
-            pets.setTattoo(Boolean.parseBoolean(vistaUp.tattooUpP.getText()));
+            pets.setTattoo(Boolean.parseBoolean((String)vistaUp.tattooUpP.getSelectedItem()));
             pets.setId_owners(Integer.parseInt(vistaUp.idOwnUpP.getText()));
             
             if(consultas.updatePets(pets)){

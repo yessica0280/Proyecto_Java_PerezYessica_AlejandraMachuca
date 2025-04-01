@@ -1,5 +1,6 @@
 package Administrator.Modelo;
 
+import Dueños.Vista.updateAppointment;
 import Administrator.Vista.Vista_menu;
 import java.sql.*; 
 import java.text.ParseException;

@@ -7,6 +7,7 @@ import Dueños.Vista.Update;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import Dueños.Vista.updateAppointment;
 
 public class ControladorUpdate implements ActionListener{
     
@@ -14,15 +15,18 @@ public class ControladorUpdate implements ActionListener{
     Consultas consultas;
     Update update;
     Pets pet;
+    updateAppointment upa;
     
-    public ControladorUpdate(Owners modelo, Consultas consultas, Update update, Pets pet){
+    public ControladorUpdate(Owners modelo, Consultas consultas, Update update, Pets pet, updateAppointment upa){
         this.modelo = modelo;
         this.consultas = consultas;
         this.update = update;
         this.pet = pet;
+        this.upa = upa;
         
         this.update.upo.addActionListener(this);
         this.update.upos.addActionListener(this);
+        this.update.UpdateAp1.addActionListener(this);
     }
 
     @Override
@@ -58,17 +62,39 @@ public class ControladorUpdate implements ActionListener{
             pet.setRace(update.race.getText());
             pet.setAge(Integer.parseInt(update.age.getText()));
             pet.setDate_of_birth(update.date.getText());
-            pet.setSex(update.sex.getText());
-            pet.setMicrochip(Boolean.parseBoolean(update.micro.getText()));
+            pet.setSex((String)update.sex.getSelectedItem());
+            pet.setMicrochip(Boolean.parseBoolean((String)update.micro.getSelectedItem()));
             pet.setPhoto(update.photo.getText());
-            pet.setTattoo(Boolean.parseBoolean(update.tattoo.getText()));
+            pet.setTattoo(Boolean.parseBoolean((String)update.tattoo.getSelectedItem()));
             pet.setId_owners(Integer.parseInt(update.idow.getText()));
             
             if(consultas.updatePets(pet)){
-                JOptionPane.showMessageDialog(null, "Datos de mascota actualizada.");
+                JOptionPane.showMessageDialog(null, "Pets successfully updated.");
             }
             else{
                 JOptionPane.showMessageDialog(null, "Error al actualizar");
+            }
+        }
+        
+        
+        
+        /*update Appointments*/
+        if(e.getSource() == update.UpdateAp1){
+            
+            upa.setId_appointment(Integer.parseInt(update.idaP.getText()));
+            upa.setDate((update.dateA.getText()));
+            upa.setHour(update.hourA.getText());
+            upa.setState((String)update.stateA.getSelectedItem());
+            upa.setProcess(update.processA.getText());
+            upa.setReason(update.reasonA.getText());
+            upa.setId_owner(Integer.parseInt(update.idoA.getText()));
+            
+            if(consultas.updateAppointment(upa)){
+                JOptionPane.showMessageDialog(null, "Appointment successfully updated.");
+ 
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error during update.");
             }
         }
     }

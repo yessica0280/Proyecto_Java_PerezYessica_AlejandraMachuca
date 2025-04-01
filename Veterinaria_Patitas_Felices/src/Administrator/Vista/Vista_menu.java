@@ -22,6 +22,7 @@ import Administrator.Modelo.PetsAttended;
 import Administrator.Modelo.StockMedicines;
 import Administrator.Modelo.StockProducts;
 import Administrator.Modelo.VeterinarianPerformance;
+import Dueños.Vista.updateAppointment;
 
 /**
  *
@@ -314,6 +315,7 @@ public class Vista_menu extends javax.swing.JFrame {
         Consultas consultass = new Consultas();
         Pets pet = new Pets();
         Owners owners = new Owners();
+        
         ControladorUpdate c = new ControladorUpdate(vistaup, admin, doctors, consultass, medis, pet, owners, vr, sm, sp);
         
         vr.setVisible(true);

@@ -52,7 +52,7 @@ public class ControladorAdd implements ActionListener{
         if(e.getSource() == add.addpo){
             apo.setDate1(add.dates.getText());
             apo.setHour1(add.hour.getText());
-            apo.setState(add.state.getText());
+            apo.setState((String)add.state.getSelectedItem());
             apo.setProcess1(add.process.getText());
             apo.setReason(add.reason.getText());
             apo.setId_owners(Integer.parseInt(add.idow.getText()));

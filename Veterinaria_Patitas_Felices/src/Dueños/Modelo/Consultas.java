@@ -4,6 +4,7 @@ import Administrator.Vista.Vista_Login;
 import Administrator.Vista.Vista_menu;
 import Dueños.Vista.FrameU;
 import Dueños.Vista.Menu;
+import Dueños.Vista.updateAppointment;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -274,6 +275,42 @@ public class Consultas extends Conexion{
                 cx.close();
             }
             catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
+    
+    
+    
+    /*Update appointments*/
+    public boolean updateAppointment(updateAppointment apo) {
+        PreparedStatement ps = null;
+        Connection cx = null;
+        
+        String sql = "update Appointments set date1=?, hour1=?, state=?, process1=?, reason=?, id_owners=? where id_appointment=?";
+        
+        try {
+            cx = getConexion();
+            ps = cx.prepareStatement(sql);
+            ps.setString(1, apo.getDate());
+            ps.setString(2, apo.getHour());
+            ps.setString(3, apo.getState());
+            ps.setString(4, apo.getProcess());
+            ps.setString(5, apo.getReason());
+            ps.setInt(6, apo.getId_owner());
+            ps.setInt(7, apo.getId_appointment());
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        }
+        finally {
+            try {
+                cx.close();
+            }
+            catch (SQLException e) {
                 System.err.println(e);
             }
         }
